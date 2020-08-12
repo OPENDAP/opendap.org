@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 
 @Component({
   selector: 'app-faq-single-section',
   templateUrl: './faq-single-section.component.html',
-  styleUrls: ['./faq-single-section.component.scss']
+  styleUrls: ['./faq-single-section.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FaqSingleSectionComponent implements OnInit {
 

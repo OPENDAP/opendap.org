@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 import * as showdown from 'showdown';
 
 @Component({
   selector: 'app-download-widget',
   templateUrl: './download-widget.component.html',
-  styleUrls: ['./download-widget.component.scss']
+  styleUrls: ['./download-widget.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DownloadWidgetComponent implements OnInit {
   @Input() download: any;

@@ -20,6 +20,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
 import { NavComponent } from './navigation/nav/nav.component';
 import { NavigationDockComponent } from './navigation/navigation-dock/navigation-dock.component';
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { NotFoundComponent } from './navigation/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     DemoMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

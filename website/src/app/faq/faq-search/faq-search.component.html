@@ -1,8 +1,7 @@
-<p>faq-search works!</p>
 <div>
     <div>
         <mat-form-field (keydown)="keyDownFunction($event)">
-            <!-- <input matInput type="text" placeholder="Describe your issue" [(ngModel)]="value" autocomplete="off" /> -->
+            <input matInput type="text" placeholder="Describe your issue" [(ngModel)]="value" autocomplete="off" />
 
             <button matSuffix mat-icon-button (click)="search()">
                 <mat-icon>keyboard_arrow_right</mat-icon>

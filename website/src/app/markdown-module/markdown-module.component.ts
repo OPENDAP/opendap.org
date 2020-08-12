@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { DataReaderService } from '../shared/services/data-reader.service';
 
 @Component({
   selector: 'app-markdown-module',
   templateUrl: './markdown-module.component.html',
-  styleUrls: ['./markdown-module.component.scss']
+  styleUrls: ['./markdown-module.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MarkdownModuleComponent implements OnInit {
   @Input() pageID: string;

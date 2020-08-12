@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import * as showdown from 'showdown';
@@ -8,7 +8,8 @@ import { VersionData } from '../shared/models/versionData';
 @Component({
   selector: 'app-releases',
   templateUrl: './releases.component.html',
-  styleUrls: ['./releases.component.scss']
+  styleUrls: ['./releases.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ReleasesComponent implements OnInit {
   allVersionData: VersionData[] = [];
