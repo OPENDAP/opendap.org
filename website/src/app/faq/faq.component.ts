@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataReaderService } from '../shared/services/data-reader.service';
+
 import * as showdown from 'showdown';
 
 @Component({

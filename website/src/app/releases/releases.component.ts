@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import * as showdown from 'showdown';
+import { DataReaderService } from '../shared/services/data-reader.service';
+import { VersionData } from '../shared/models/versionData';
 
 @Component({
   selector: 'app-releases',

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Versions } from '../models/versions';
+import { HKVersionResponse } from '../models/hkVersions';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -88,7 +91,7 @@ export class Issue {
   fields: {
     description: string;
     summary: string;
-    fixVersions: FixVersion[]; 
+    fixVersions: FixVersion[];
   }
 }
 

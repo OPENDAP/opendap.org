@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataReaderService } from '../shared/services/data-reader.service';
 
 @Component({
   selector: 'app-markdown-module',

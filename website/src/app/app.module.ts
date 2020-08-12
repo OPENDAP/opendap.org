@@ -8,13 +8,18 @@ import { HyraxComponent } from './hyrax/hyrax.component';
 import { MarkdownModuleComponent } from './markdown-module/markdown-module.component';
 import { ReleasesComponent } from './releases/releases.component';
 import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
-import { AboutUsComponent } from './content-driven/about-us/about-us.component';
-import { SoftwareComponent } from './content-driven/software/software.component';
-import { SupportComponent } from './content-driven/support/support.component';
+import { AboutUsComponent, SoftwareComponent, SupportComponent } from './markdown-module/content.components';
 import { FaqComponent } from './faq/faq.component';
 import { FaqSingleSectionComponent } from './faq/faq-single-section/faq-single-section.component';
 import { FaqSearchComponent } from './faq/faq-search/faq-search.component';
 import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
+
+import { DemoMaterialModule } from './material-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { NavComponent } from './navigation/nav/nav.component';
+import { NavigationDockComponent } from './navigation/navigation-dock/navigation-dock.component';
+import { NotFoundComponent } from './navigation/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +35,17 @@ import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
     FaqComponent,
     FaqSingleSectionComponent,
     FaqSearchComponent,
-    FaqSectionComponent
+    FaqSectionComponent,
+    FooterComponent,
+    NavComponent,
+    NavigationDockComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DemoMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

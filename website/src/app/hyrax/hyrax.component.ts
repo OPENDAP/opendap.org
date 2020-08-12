@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataReaderService } from '../shared/services/data-reader.service';
 
 @Component({
   selector: 'app-hyrax',
