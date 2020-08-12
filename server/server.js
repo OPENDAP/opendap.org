@@ -1,10 +1,11 @@
-const converter = new showdown.Converter();
 const express = require('express');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const request = require('request');
 const showdown = require('showdown');
+
+const converter = new showdown.Converter();
 
 const app = express();
 app.use(express.static(__dirname + '/dist/website'));

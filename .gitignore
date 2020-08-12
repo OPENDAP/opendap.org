@@ -9,6 +9,7 @@
 
 # dependencies
 /website/node_modules
+/server/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -32,14 +33,14 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
-/website//.sass-cache
-/website//connect.lock
-/website//coverage
-/website//libpeerconnection.log
+/website/.sass-cache
+/website/connect.lock
+/website/coverage
+/website/libpeerconnection.log
 /website/npm-debug.log
 /website/yarn-error.log
 /website/testem.log
-/website//typings
+/website/typings
 
 # System Files
 .DS_Store
