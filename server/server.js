@@ -27,7 +27,7 @@ app.get('/api/content/support', (req, res) => {
 });
 
 function parseConfigFile(pageID) {
-    let fileData = JSON.parse(fs.readFileSync(`public/site/${pageID}/${pageID}.config.json`, 'utf8'));
+    let fileData = JSON.parse(fs.readFileSync(`public/site/${pageID.toLowerCase()}/${pageID.toLowerCase()}.config.json`, 'utf8'));
 
     for (let thisSection of fileData.sections) {
         if (thisSection.sectionType === "standard") {
