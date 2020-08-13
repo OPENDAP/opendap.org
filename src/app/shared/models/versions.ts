@@ -1,3 +1,3 @@
 export class Versions {
-    versions: []
+    versions: [];
 }

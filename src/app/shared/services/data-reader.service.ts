@@ -43,7 +43,7 @@ export class DataReaderService {
   }
 
   getFAQPage(pageTitle: string): Observable<any> {
-    return this.http.get<any>(`/api/content/faq/${pageTitle}`)
+    return this.http.get<any>(`/api/content/faq/${pageTitle}`);
   }
 
   getSupportData(): Observable<any> {
@@ -63,7 +63,7 @@ export class DataReaderService {
   }
 
   getIssue(key: string): Observable<JiraIssue> {
-    return this.http.get<JiraIssue>(`http://localhost:3001/api/jira/${key}`)
+    return this.http.get<JiraIssue>(`http://localhost:3001/api/jira/${key}`);
   }
 
   getBugFixData(fixVersion: string): Observable<JiraTicket> {
@@ -76,7 +76,7 @@ export class JiraTicket {
     startAt: number;
     total: number;
     issues: Issue[];
-  }
+  };
 }
 
 export class JiraIssue {

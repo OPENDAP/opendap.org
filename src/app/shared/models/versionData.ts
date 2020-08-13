@@ -1,16 +1,16 @@
 export class VersionData {
-    fixVersion:String;
-    newFeatures:NewFeature[];
-    bugFixes:BugFixes[];
+    fixVersion: string;
+    newFeatures: NewFeature[];
+    bugFixes: BugFixes[];
 }
 
 export class NewFeature {
-    title:String;
-    body:String;
+    title: string;
+    body: string;
 }
 
 export class BugFixes {
-    url:String;
-    key:String;
-    text:String;
+    url: string;
+    key: string;
+    text: string;
 }

@@ -1,38 +1,36 @@
-$accent-color: tomato;
-
-.nav-image {
-    width: 35px;
-    margin-right: 5px;
-}
-
-a {
-    color: white;
-}
+@use "../../shared/sass/colors.scss" as *;
 
 nav {
+    display: flex;
     position: fixed;
+    z-index: 5;
+
+    height: 50px;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 5;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 8px 16px;
-    background: cornflowerblue;
+
+    background: $primary;
     color: white;
-}
 
-nav ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0px;
-    margin-left: auto;
-}
+    .nav-image {
+        width: 35px;
+        margin-right: 5px;
+    }
+    
+    a {
+        color: white;
+        margin: auto 0;
+    }
 
-nav ul li {
-    text-decoration: none;
-}
-
-.mat-button {
-    padding: 0 8px;
+    ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0 0 0 auto;
+    
+        li {
+            margin: auto 0;
+            text-decoration: none;
+        }
+    }
 }
