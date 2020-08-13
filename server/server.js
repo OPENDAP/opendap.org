@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist/website'));
 
 app.get('', (req, res) => {
-    res.sendFile(path.resolve('./dist/opendap-angular/index.html'));
+    res.sendFile(path.resolve('./dist/website/index.html'));
 });
 
 app.get('/api/content/about-us', (req, res) => {

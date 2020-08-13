@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-faq-search',
@@ -8,25 +9,23 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FaqSearchComponent {
   @Input() data: any;
 
-  value: string;
   results = new Set();
 
-  keyDownFunction(event: any) {
-    if (event.keyCode === 13) {
-      this.search();
-    }
-  }
+  queryForm = new FormGroup({
+    query: new FormControl({ value: null, disabled: false }, [
+      Validators.required, Validators.minLength(1)])
+  });
 
-  search() {
-    if (this.value.length > 0) {
+  search(): void {
+    if (this.queryForm.valid) {
       this.results.clear();
 
-      for (let thisSection of this.data) {
-        for (let thisArticle of thisSection) {
+      for (const section of this.data) {
+        for (const article of section) {
           out:
-          for (let tag of thisArticle.tags) {
-            if (this.value.toLowerCase().includes(tag)) {
-              this.results.add(thisArticle);
+          for (const tag of article.tags) {
+            if (this.queryForm.controls.query.value.toLowerCase().includes(tag)) {
+              this.results.add(article);
               break out;
             }
           }
