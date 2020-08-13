@@ -1,0 +1,21 @@
+<div>
+    <form [formGroup]="queryForm" (ngSubmit)="search()">
+        <mat-form-field>
+            <input matInput formControlName="query" type="text" placeholder="Describe your issue" autocomplete="off" />
+            <button matSuffix mat-icon-button>
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let article of results">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{article.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div [innerHTML]="article.md"></div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

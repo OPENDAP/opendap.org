@@ -1,14 +1,14 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/website/dist
-/website/tmp
-/website/out-tsc
+/dist
+/tmp
+/out-tsc
 # Only exists if Bazel was run
-/website/bazel-out
+/bazel-out
 
 # dependencies
-/website/node_modules
+/node_modules
 /server/node_modules
 
 # profiling files
@@ -33,14 +33,14 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
-/website/.sass-cache
-/website/connect.lock
-/website/coverage
-/website/libpeerconnection.log
-/website/npm-debug.log
-/website/yarn-error.log
-/website/testem.log
-/website/typings
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+/npm-debug.log
+/yarn-error.log
+/testem.log
+/typings
 
 # System Files
 .DS_Store

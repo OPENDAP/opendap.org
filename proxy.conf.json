@@ -1,0 +1,14 @@
+{
+    "/rest/*": {
+        "target": "https://opendap.atlassian.net",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/api/*": {
+        "target": "http://localhost:3001",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
