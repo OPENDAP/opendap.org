@@ -1,0 +1,98 @@
+@import '~@angular/material/theming';
+
+$app-blue: (
+  50:  #E8EAF6,
+  100: #C5CAE9,
+  200: #9FA8DA,
+  300: #7986CB,
+  400: #5C6BC0,
+  500: #3F51B5,
+  600: #3949AB,
+  700: #303F9F,
+  800: #283593,
+  900: #1A237E,
+  A100: #8C9EFF,
+  A200: #8C9EFF,
+  A400: #3D5AFE,
+  A700: #304FFE,
+
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$app-green: (
+  50:  #F1F8E9,
+  100: #DCEDC8,
+  200: #C5E1A5,
+  300: #AED581,
+  400: #9CCC65,
+  500: #8BC34A,
+  600: #7CB342,
+  700: #689F38,
+  800: #558B2F,
+  900: #33691E,
+  A100: #CCFF90,
+  A200: #B2FF59,
+  A400: #76FF03,
+  A700: #64DD17,
+
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$app-primary: mat-palette($app-blue, A600); 
+$app-accent:  mat-palette($app-green, 500); 
+
+$app-warn:    mat-palette($mat-orange);
+$app-yellow:  mat-palette($mat-yellow, A700);
+$app-red:     mat-palette($mat-red, 400);
+
+$text-colorA:       #333;
+$text-colorB:       #fff;
+$headerA:           #EBEBEB;
+$headerB:           #D8D8D8;
+$headerC:           #BBBBBB;
+$dark-btn:          #777;
+$dark-lte-btn:      #888;
+$dark-ex-lte-btn:   #999;
+$crimson:           #d8484d;
+
+$primary:    mat-color($app-primary);
+$accent:     mat-color($app-accent);
+$warn:       mat-color($app-warn);
+$yellow:     #FFCB2D;
+$red:        mat-color($app-red);
+$grid-grey: #656565;
+
+
+$base-theme:Material;
+$skin-name:lightblue-green;
+$swatch-name:Material;
+$border-radius: 2px;
+$primary-palette-name: $app-primary;
+$secondary-palette-name: green;
+$theme-type: light;
+
+$height-toolbar: 50px;
+$height-nav-tabs: 50px;
+$height-progress-bar: 5px;
