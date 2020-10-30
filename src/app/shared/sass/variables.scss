@@ -60,8 +60,8 @@ $app-green: (
   )
 );
 
-$app-primary: mat-palette($app-blue, A600); 
-$app-accent:  mat-palette($app-green, 500); 
+$opendap-primary: mat-palette($app-blue, 600); 
+$opendap-app-accent:  mat-palette($app-green, 500); 
 
 $app-warn:    mat-palette($mat-orange);
 $app-yellow:  mat-palette($mat-yellow, A700);
@@ -77,22 +77,26 @@ $dark-lte-btn:      #888;
 $dark-ex-lte-btn:   #999;
 $crimson:           #d8484d;
 
-$primary:    mat-color($app-primary);
-$accent:     mat-color($app-accent);
+$primary:    mat-color($opendap-primary);
+$accent:     mat-color($opendap-app-accent);
 $warn:       mat-color($app-warn);
 $yellow:     #FFCB2D;
 $red:        mat-color($app-red);
 $grid-grey: #656565;
 
-
-$base-theme:Material;
-$skin-name:lightblue-green;
-$swatch-name:Material;
+$base-theme: Material;
+$skin-name: darkblue-green;
+$swatch-name: Material;
 $border-radius: 2px;
-$primary-palette-name: $app-primary;
-$secondary-palette-name: green;
+$primary-palette-name: $app-blue;
+$secondary-palette-name: $app-green;
 $theme-type: light;
 
 $height-toolbar: 50px;
 $height-nav-tabs: 50px;
 $height-progress-bar: 5px;
+
+:link {
+    color: $primary;
+    text-decoration: none;
+}

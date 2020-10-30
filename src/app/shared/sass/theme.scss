@@ -3,5 +3,5 @@
 
 @include mat-core();
 
-$app-theme: mat-light-theme($app-primary, $app-accent);
+$app-theme: mat-light-theme($opendap-primary, $opendap-app-accent);
 @include angular-material-theme($app-theme);
