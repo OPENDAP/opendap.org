@@ -3,7 +3,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-about-us',
   template: `<app-markdown-module pageID="about-us"></app-markdown-module>`,
-  styles: [`img { max-width: 85px; }`],
+styles: [`td { img { max-width: 85px; } }`],
   encapsulation: ViewEncapsulation.None
 })
 export class AboutUsComponent { }
