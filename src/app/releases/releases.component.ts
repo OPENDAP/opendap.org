@@ -9,7 +9,7 @@ import { VersionData } from '../shared/models/versionData';
   selector: 'app-releases',
   templateUrl: './releases.component.html',
   styleUrls: ['./releases.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  
 })
 export class ReleasesComponent implements OnInit {
   allVersionData: VersionData[] = [];

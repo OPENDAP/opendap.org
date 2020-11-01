@@ -22,6 +22,7 @@ import { NavigationDockComponent } from './navigation/navigation-dock/navigation
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     NavComponent,
     NavigationDockComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MarkdownDivComponent
   ],
   imports: [
     BrowserModule,

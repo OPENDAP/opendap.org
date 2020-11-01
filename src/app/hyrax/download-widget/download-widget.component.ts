@@ -6,7 +6,7 @@ import * as showdown from 'showdown';
   selector: 'app-download-widget',
   templateUrl: './download-widget.component.html',
   styleUrls: ['./download-widget.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  
 })
 export class DownloadWidgetComponent implements OnInit {
   @Input() download: any;

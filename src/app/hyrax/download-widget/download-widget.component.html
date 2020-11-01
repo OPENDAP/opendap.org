@@ -12,15 +12,15 @@
             </mat-expansion-panel-header>
 
             <mat-accordion>
-                <mat-expansion-panel *ngFor="let thisDownload of downloadDisplay">
+                <mat-expansion-panel *ngFor="let download of downloadDisplay">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <img [src]="thisDownload.image" class="small-logo">
-                            {{ thisDownload.title }}
+                            <img [src]="download.image" class="small-logo">
+                            {{ download.title }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
-                    <div [innerHTML]="thisDownload.html"></div>
+                    <app-markdown-div [innerHTML]="download.html"></app-markdown-div>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-expansion-panel>
@@ -33,7 +33,7 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <div [innerHTML]="installationDisplay"></div>
+            <app-markdown-div [innerHTML]="installationDisplay"></app-markdown-div>
         </mat-expansion-panel>
     </mat-accordion>
 </div>

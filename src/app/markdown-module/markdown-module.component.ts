@@ -5,7 +5,7 @@ import { DataReaderService } from '../shared/services/data-reader.service';
   selector: 'app-markdown-module',
   templateUrl: './markdown-module.component.html',
   styleUrls: ['./markdown-module.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  
 })
 export class MarkdownModuleComponent implements OnInit {
   @Input() pageID: string;
