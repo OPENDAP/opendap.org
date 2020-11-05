@@ -4,7 +4,7 @@ import { DataReaderService } from '../shared/services/data-reader.service';
 @Component({
   selector: 'app-hyrax',
   templateUrl: './hyrax.component.html',
-  styleUrls: ['./hyrax.component.scss']
+  styleUrls: ['./hyrax.component.scss', '../shared/sass/landing-style.scss']
 })
 export class HyraxComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class HyraxComponent implements OnInit {
 
   constructor(private dataReaderService: DataReaderService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataReaderService.getReleaseData().subscribe(data => {
       this.versions = data.versions;
     });

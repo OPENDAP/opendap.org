@@ -5,13 +5,13 @@ import * as showdown from 'showdown';
 @Component({
   selector: 'app-download-widget',
   templateUrl: './download-widget.component.html',
-  styleUrls: ['./download-widget.component.scss'],
-  
+  styleUrls: ['./download-widget.component.scss']
 })
 export class DownloadWidgetComponent implements OnInit {
   @Input() download: any;
   @Input() installation: string;
   @Input() title: string;
+  @Input() showTitle = true;
 
   constructor() { }
 
