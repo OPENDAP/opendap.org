@@ -8,6 +8,7 @@ import { FaqComponent } from './faq/faq.component';
 import { MarkdownModuleComponent } from './markdown-module/markdown-module.component';
 import { LandingComponent } from './landing/landing.component';
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
+import { DocumentationComponent } from './hyrax/documentation/documentation.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'support/faq/:article', component: FaqSingleSectionComponent },
   { path: 'software', component: SoftwareComponent },
   { path: 'software/hyrax', component: HyraxComponent },
+  { path: 'software/hyrax/guide', component: DocumentationComponent },
   { path: 'software/hyrax/releases/:version', component: ReleasesComponent },
   // { path: 'devtools/boilerplate', component: BoilerplateMakerComponent },
   // { path: 'devtools/boilerplate/:fixVersion', component: BoilerplateEditorComponent },

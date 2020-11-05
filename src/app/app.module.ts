@@ -23,6 +23,7 @@ import { NotFoundComponent } from './navigation/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
+import { DocumentationComponent } from './hyrax/documentation/documentation.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-
     NavComponent,
     NavigationDockComponent,
     NotFoundComponent,
-    MarkdownDivComponent
+    MarkdownDivComponent,
+    DocumentationComponent
   ],
   imports: [
     BrowserModule,
