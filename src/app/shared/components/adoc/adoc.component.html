@@ -1,0 +1,7 @@
+<div class="body">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div *ngIf="!loading && data" [innerHTML]="data.html"></div>
+    <div *ngIf="errored">
+        An error has occured;
+    </div>
+</div>

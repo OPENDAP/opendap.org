@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
 import { DocumentationComponent } from './hyrax/documentation/documentation.component';
+import { AdocComponent } from './shared/components/adoc/adoc.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DocumentationComponent } from './hyrax/documentation/documentation.comp
     NavigationDockComponent,
     NotFoundComponent,
     MarkdownDivComponent,
-    DocumentationComponent
+    DocumentationComponent,
+    AdocComponent
   ],
   imports: [
     BrowserModule,

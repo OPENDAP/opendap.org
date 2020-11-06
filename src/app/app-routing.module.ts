@@ -9,11 +9,12 @@ import { MarkdownModuleComponent } from './markdown-module/markdown-module.compo
 import { LandingComponent } from './landing/landing.component';
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
 import { DocumentationComponent } from './hyrax/documentation/documentation.component';
+import { AdocComponent } from './shared/components/adoc/adoc.component';
 
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'test', component: MarkdownModuleComponent },
+  { path: 'test', component: AdocComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'support', component: SupportComponent },
   { path: 'support/faq', component: FaqComponent },
