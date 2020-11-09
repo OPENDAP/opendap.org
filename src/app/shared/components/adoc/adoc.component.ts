@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataReaderService } from '../../services/data-reader.service';
 
 @Component({
@@ -7,23 +8,24 @@ import { DataReaderService } from '../../services/data-reader.service';
   styleUrls: ['./adoc.component.scss']
 })
 export class AdocComponent implements OnInit {
+  @Input() pageName: string;
+
   loading = true;
-  errored = false;
 
   data: any;
 
-  constructor(public dataReader: DataReaderService) {
-    this.dataReader.getAdoc('about-us').subscribe(data => {
+  constructor(
+    public dataReader: DataReaderService,
+    private router: Router
+  ) { }
+
+  public ngOnInit(): void {
+    this.dataReader.getAdoc(this.pageName).subscribe(data => {
       this.data = data;
-    }, error => {
-      console.log(error);
-      this.errored = true;
+    }, () => {
+      this.router.navigate(['/404']);
     }, () => {
       this.loading = false;
     });
   }
-
-  ngOnInit(): void {
-  }
-
 }
