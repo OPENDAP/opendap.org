@@ -6,14 +6,15 @@
             {{thisSection.title}}
         </h1>
 
-        <div *ngIf="thisSection.sectionType == 'standard'" [innerHTML]="thisSection.parsedFile.md">
-            <!-- Content inserted via innerHTML. -->
-        </div>
+        <app-adoc
+            *ngIf="thisSection.sectionType == 'standard'"
+            [content]="thisSection.parsedFile">
+        </app-adoc>
 
         <mat-tab-group *ngIf="thisSection.sectionType == 'tabbed'" dynamicHeight>
-            <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.parsedFile.title}}">
-                <mat-card [innerHTML]="thisTab.parsedFile.md" class="tab-content">
-                    <!-- Content inserted via innerHTML. -->
+            <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.title}}">
+                <mat-card class="tab-content">
+                    <app-adoc [content]="thisTab.parsedFile"></app-adoc>
                 </mat-card>
             </mat-tab>
         </mat-tab-group>
