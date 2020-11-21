@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ReleasesComponent } from './releases/releases.component';
 import { HyraxComponent } from './hyrax/hyrax.component';
-import { SoftwareComponent, SupportComponent, AboutUsComponent } from './markdown-module/content.components';
+import { SoftwareComponent, SupportComponent, AboutUsComponent } from './content.components';
 import { FaqSingleSectionComponent } from './faq/faq-single-section/faq-single-section.component';
 import { FaqComponent } from './faq/faq.component';
 import { LandingComponent } from './landing/landing.component';

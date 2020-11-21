@@ -7,7 +7,7 @@ import { LandingComponent } from './landing/landing.component';
 import { HyraxComponent } from './hyrax/hyrax.component';
 import { ReleasesComponent } from './releases/releases.component';
 import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
-import { AboutUsComponent, SoftwareComponent, SupportComponent } from './markdown-module/content.components';
+import { AboutUsComponent, SoftwareComponent, SupportComponent } from './content.components';
 import { FaqComponent } from './faq/faq.component';
 import { FaqSingleSectionComponent } from './faq/faq-single-section/faq-single-section.component';
 import { FaqSearchComponent } from './faq/faq-search/faq-search.component';

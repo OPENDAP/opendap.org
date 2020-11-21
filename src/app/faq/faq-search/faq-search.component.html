@@ -1,8 +1,9 @@
 <div>
     <form [formGroup]="queryForm" (ngSubmit)="search()">
-        <mat-form-field>
-            <input matInput formControlName="query" type="text" placeholder="Describe your issue" autocomplete="off" />
-            <button matSuffix mat-icon-button>
+        <mat-form-field appearance="legacy">
+            <mat-label>Describe your issue</mat-label>
+            <input matInput formControlName="query" type="text" autocomplete="off" />
+            <button mat-icon-button matSuffix>
                 <mat-icon>chevron_right</mat-icon>
             </button>
         </mat-form-field>
