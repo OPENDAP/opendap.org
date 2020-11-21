@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { HyraxComponent } from './hyrax/hyrax.component';
-import { MarkdownModuleComponent } from './markdown-module/markdown-module.component';
 import { ReleasesComponent } from './releases/releases.component';
 import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
 import { AboutUsComponent, SoftwareComponent, SupportComponent } from './markdown-module/content.components';
@@ -25,13 +24,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
 import { DocumentationComponent } from './hyrax/documentation/documentation.component';
 import { AdocComponent } from './shared/components/adoc/adoc.component';
+import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     HyraxComponent,
-    MarkdownModuleComponent,
     ReleasesComponent,
     DownloadWidgetComponent,
     AboutUsComponent,
@@ -47,7 +46,8 @@ import { AdocComponent } from './shared/components/adoc/adoc.component';
     NotFoundComponent,
     MarkdownDivComponent,
     DocumentationComponent,
-    AdocComponent
+    AdocComponent,
+    AdocTemplateComponent
   ],
   imports: [
     BrowserModule,

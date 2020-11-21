@@ -1,5 +1,7 @@
+@import '../../sass/variables.scss';
+
 .markdown-body {
-    margin-top: 170px;
+    margin-top: 90px;
 }
 
 .tab-content {
@@ -10,10 +12,19 @@
 }
 
 .markdown {
-    max-width: 800px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
+
+    h1 {
+        margin-top: 21px;
+        font-weight: 300;
+        font-size: 1.75em;
+        color: $primary;
+        border-bottom: solid 1px $primary;
+        padding-bottom: 7px;
+    }
 
     pre {
         white-space: pre-wrap;

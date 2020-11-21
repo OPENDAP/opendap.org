@@ -5,7 +5,6 @@ import { HyraxComponent } from './hyrax/hyrax.component';
 import { SoftwareComponent, SupportComponent, AboutUsComponent } from './markdown-module/content.components';
 import { FaqSingleSectionComponent } from './faq/faq-single-section/faq-single-section.component';
 import { FaqComponent } from './faq/faq.component';
-import { MarkdownModuleComponent } from './markdown-module/markdown-module.component';
 import { LandingComponent } from './landing/landing.component';
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
 import { DocumentationComponent } from './hyrax/documentation/documentation.component';

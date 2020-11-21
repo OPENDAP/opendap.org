@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarkdownModuleComponent } from './markdown-module.component';
+import { AdocTemplateComponent } from './adoc-template.component';
 
-describe('MarkdownModuleComponent', () => {
-  let component: MarkdownModuleComponent;
-  let fixture: ComponentFixture<MarkdownModuleComponent>;
+describe('AdocTemplateComponent', () => {
+  let component: AdocTemplateComponent;
+  let fixture: ComponentFixture<AdocTemplateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarkdownModuleComponent ]
+      declarations: [ AdocTemplateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkdownModuleComponent);
+    fixture = TestBed.createComponent(AdocTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

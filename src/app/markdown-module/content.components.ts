@@ -14,6 +14,6 @@ export class SoftwareComponent { }
 
 @Component({
   selector: 'app-support',
-  template: `<app-markdown-module pageID="support"></app-markdown-module>`,
+  template: `<app-adoc-template pageID="support"></app-adoc-template>`,
 })
 export class SupportComponent { }

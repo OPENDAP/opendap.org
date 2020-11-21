@@ -1,8 +1,8 @@
 @import '../../sass/variables.scss';
 
 :host ::ng-deep .body {
-    margin-top: $height-toolbar;
-    padding-top: 25px;
+    // margin-top: $height-toolbar;
+    // padding-top: 25px;
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
@@ -35,9 +35,14 @@
     }
 
     p, ul, ol {
-        line-height: 130%;
+        line-height: 140%;
         color: $text-colorA;
         text-align: justify;
+    }
+
+    ul ul {
+        margin-top: 7px;
+        margin-bottom: 7px;
     }
 
     p {
