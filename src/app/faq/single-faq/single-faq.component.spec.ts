@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FaqSectionComponent } from './faq-section.component';
+import { SingleFaqComponent } from './single-faq.component';
 
-describe('FaqSectionComponent', () => {
-  let component: FaqSectionComponent;
-  let fixture: ComponentFixture<FaqSectionComponent>;
+describe('SingleFaqComponent', () => {
+  let component: SingleFaqComponent;
+  let fixture: ComponentFixture<SingleFaqComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FaqSectionComponent ]
+      declarations: [ SingleFaqComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FaqSectionComponent);
+    fixture = TestBed.createComponent(SingleFaqComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,10 +8,6 @@ import { HyraxComponent } from './hyrax/hyrax.component';
 import { ReleasesComponent } from './releases/releases.component';
 import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
 import { AboutUsComponent, SoftwareComponent, SupportComponent } from './markdown-module/content.components';
-import { FaqComponent } from './faq/faq.component';
-import { FaqSingleSectionComponent } from './faq/faq-single-section/faq-single-section.component';
-import { FaqSearchComponent } from './faq/faq-search/faq-search.component';
-import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
 
 import { DemoMaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,11 +16,13 @@ import { NavComponent } from './navigation/nav/nav.component';
 import { NavigationDockComponent } from './navigation/navigation-dock/navigation-dock.component';
 import { NotFoundComponent } from './navigation/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
 import { DocumentationComponent } from './hyrax/documentation/documentation.component';
 import { AdocComponent } from './shared/components/adoc/adoc.component';
 import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-template.component';
+import { SingleFaqComponent } from './faq/single-faq/single-faq.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +34,6 @@ import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-te
     AboutUsComponent,
     SoftwareComponent,
     SupportComponent,
-    FaqComponent,
-    FaqSingleSectionComponent,
-    FaqSearchComponent,
-    FaqSectionComponent,
     FooterComponent,
     NavComponent,
     NavigationDockComponent,
@@ -47,7 +41,9 @@ import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-te
     MarkdownDivComponent,
     DocumentationComponent,
     AdocComponent,
-    AdocTemplateComponent
+    AdocTemplateComponent,
+    SingleFaqComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +51,8 @@ import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-te
     DemoMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

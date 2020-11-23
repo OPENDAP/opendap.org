@@ -1,36 +1,75 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormControl, FormGroup } from '@angular/forms';
+import { FaqSection } from '../shared/models/faq.model';
 import { DataReaderService } from '../shared/services/data-reader.service';
-
-import * as showdown from 'showdown';
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.scss']
 })
-export class FaqComponent implements OnInit {
-  data: [];
+export class FaqComponent {
+  private faqData: FaqSection[][];
 
-  general: [];
-  clientIssues: [];
-  serverIssues: [];
-  developers: [];
+  public searchResults: Set<FaqSection>;
 
-  constructor(private dataReaderService: DataReaderService) { }
+  queryForm = new FormGroup({
+    query: new FormControl({ value: null, disabled: false })
+  });
 
-  ngOnInit() {
+  constructor(public dataReaderService: DataReaderService) {
     this.dataReaderService.getFAQData().subscribe(data => {
-      this.data = data;
-
-      this.general = data[0];
-      this.clientIssues = data[1];
-      this.serverIssues = data[2];
-      this.developers = data[3];
+      this.faqData = data;
     });
   }
 
-  parseMarkdown(md: string) {
-    return new showdown.Converter().makeHtml(md);
+  get general(): FaqSection[] {
+    return this.faqData && this.faqData.length > 0 ? this.faqData[0] : null;
+  }
+
+  get clientIssues(): FaqSection[] {
+    return this.faqData && this.faqData.length > 1 ? this.faqData[1] : null;
+  }
+
+  get serverIssues(): FaqSection[] {
+    return this.faqData && this.faqData.length > 2 ? this.faqData[2] : null;
+  }
+
+  get developers(): FaqSection[] {
+    return this.faqData && this.faqData.length > 3 ? this.faqData[3] : null;
+  }
+
+  get numSearchResults(): number {
+    return this.searchResults ? this.searchResults.size : -1;
+  }
+
+  public search(): void {
+    if (!this.searchResults) {
+      this.searchResults = new Set<FaqSection>();
+    } else {
+      this.searchResults.clear();
+    }
+
+    if (this.queryForm.controls.query.value) {
+      this.faqData.forEach(section => {
+        for (const article of section) {
+          out:
+          for (const tag of article.tags) {
+            if (this.queryForm.controls.query.value.toLowerCase().includes(tag)) {
+              this.searchResults.add(article);
+              break out;
+            }
+          }
+        }
+      });
+    }
+  }
+
+  public copyFaqUrl(articleID: string): void {
+    console.log(articleID);
+  }
+
+  public openInNewTab(articleID: string): void {
+
   }
 }

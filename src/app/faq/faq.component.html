@@ -1,21 +1,110 @@
-<div class="body">
+<div class="faq">
     <h1>How can we help you?</h1>
+    <form [formGroup]="queryForm" (ngSubmit)="search()">
+        <mat-form-field appearance="legacy">
+            <mat-label>Describe your issue</mat-label>
+            <input matInput formControlName="query">
+            <button mat-icon-button matSuffix (click)="search()">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
 
-    <app-faq-search *ngIf="data" [data]="data"></app-faq-search>
+    <mat-accordion multi *ngIf="numSearchResults > 0">
+        <mat-expansion-panel *ngFor="let article of searchResults">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ article.title }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
+            <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
+                <mat-icon>open_in_new</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
+                <mat-icon>link</mat-icon>
+            </button>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <p *ngIf="numSearchResults === 0">
+        No results were found.
+    </p>
 
     <h1>Frequently Asked Questions</h1>
+
     <mat-tab-group dynamicHeight>
-        <mat-tab label="General">
-            <app-faq-section *ngIf="general" [faqSection]="general"></app-faq-section>
+        <mat-tab *ngIf="general" label="General">
+            <mat-accordion multi>
+                <mat-expansion-panel *ngFor="let article of general">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ article.title }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
+                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
+                        <mat-icon>open_in_new</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
+                        <mat-icon>link</mat-icon>
+                    </button>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-tab>
-        <mat-tab label="Server Issues">
-            <app-faq-section *ngIf="clientIssues" [faqSection]="clientIssues"></app-faq-section>
+        <mat-tab *ngIf="clientIssues" label="Client Issues">
+            <mat-accordion multi>
+                <mat-expansion-panel *ngFor="let article of clientIssues">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ article.title }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
+                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
+                        <mat-icon>open_in_new</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
+                        <mat-icon>link</mat-icon>
+                    </button>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-tab>
-        <mat-tab label="Client Issues">
-            <app-faq-section *ngIf="serverIssues" [faqSection]="serverIssues"></app-faq-section>
+        <mat-tab *ngIf="serverIssues" label="Server Issues">
+            <mat-accordion multi>
+                <mat-expansion-panel *ngFor="let article of serverIssues">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ article.title }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
+                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
+                        <mat-icon>open_in_new</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
+                        <mat-icon>link</mat-icon>
+                    </button>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-tab>
-        <mat-tab label="Developers">
-            <app-faq-section *ngIf="developers" [faqSection]="developers"></app-faq-section>
+        <mat-tab *ngIf="developers" label="Developers">
+            <mat-accordion multi>
+                <mat-expansion-panel *ngFor="let article of developers">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ article.title }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
+                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
+                        <mat-icon>open_in_new</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
+                        <mat-icon>link</mat-icon>
+                    </button>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-tab>
     </mat-tab-group>
 </div>

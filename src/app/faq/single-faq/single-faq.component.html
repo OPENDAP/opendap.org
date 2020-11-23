@@ -1,0 +1,11 @@
+<div class="faq" *ngIf="faqArticle">
+    <h1>{{ faqArticle.title }}</h1>
+    <app-markdown-div [innerHTML]="faqArticle.md"></app-markdown-div>
+
+    <h2>Tags:</h2>
+    <mat-chip-list>
+        <mat-chip *ngFor="let tag of faqArticle.tags">
+            {{ tag }}
+        </mat-chip>
+    </mat-chip-list>
+</div>
