@@ -1,11 +1,26 @@
 <div class="faq" *ngIf="faqArticle">
-    <h1>{{ faqArticle.title }}</h1>
+    <h1 *ngIf="showHeading">{{ faqArticle.title }}</h1>
+
     <app-markdown-div [innerHTML]="faqArticle.md"></app-markdown-div>
 
     <h2>Tags:</h2>
     <mat-chip-list>
         <mat-chip *ngFor="let tag of faqArticle.tags">
-            {{ tag }}
+            <a [routerLink]="'/support/faq/search/' + tag">
+                {{ tag }}
+            </a>
         </mat-chip>
     </mat-chip-list>
+
+    <div class="buttons" *ngIf="!showHeading">
+        <a [routerLink]="'/support/faq/' + faqArticle.pageID" target="_blank">
+            <button mat-icon-button color="primary">
+                <mat-icon>open_in_new</mat-icon>
+            </button>
+        </a>
+        <button mat-icon-button color="primary" [cdkCopyToClipboard]="getFaqUrl(faqArticle.pageID)">
+            <mat-icon>link</mat-icon>
+        </button>
+    </div>
+
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FaqSection } from 'src/app/shared/models/faq.model';
 import { DataReaderService } from 'src/app/shared/services/data-reader.service';
@@ -10,7 +10,8 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 })
 export class SingleFaqComponent implements OnInit {
 
-  public faqArticle: FaqSection;
+  @Input() showHeading = true;
+  @Input() faqArticle: FaqSection;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,10 +19,16 @@ export class SingleFaqComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.dataReaderService.getFAQPage( params.article).subscribe(response => {
-        this.faqArticle = response;
+    if (this.showHeading) {
+      this.route.params.subscribe(params => {
+        this.dataReaderService.getFAQPage( params.article).subscribe(response => {
+          this.faqArticle = response;
+        });
       });
-    });
+    }
+  }
+
+  public getFaqUrl(articleID: string): string {
+    return `https://www.opendap.org/support/faq/${articleID}`;
   }
 }

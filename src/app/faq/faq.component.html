@@ -18,10 +18,12 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
-            <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
-                <mat-icon>open_in_new</mat-icon>
-            </button>
-            <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
+            <a [routerLink]="'/support/faq/' + article.pageID" target="_blank">
+                <button mat-icon-button color="primary">
+                    <mat-icon>open_in_new</mat-icon>
+                </button>
+            </a>
+            <button mat-icon-button color="primary" [cdkCopyToClipboard]="getFaqUrl(article.pageID)">
                 <mat-icon>link</mat-icon>
             </button>
         </mat-expansion-panel>
@@ -42,13 +44,7 @@
                             {{ article.title }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
-                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
-                        <mat-icon>open_in_new</mat-icon>
-                    </button>
-                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
-                        <mat-icon>link</mat-icon>
-                    </button>
+                    <app-single-faq [showHeading]="false" [faqArticle]="article"></app-single-faq>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-tab>
@@ -60,13 +56,7 @@
                             {{ article.title }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
-                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
-                        <mat-icon>open_in_new</mat-icon>
-                    </button>
-                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
-                        <mat-icon>link</mat-icon>
-                    </button>
+                    <app-single-faq [showHeading]="false" [faqArticle]="article"></app-single-faq>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-tab>
@@ -78,13 +68,7 @@
                             {{ article.title }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
-                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
-                        <mat-icon>open_in_new</mat-icon>
-                    </button>
-                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
-                        <mat-icon>link</mat-icon>
-                    </button>
+                    <app-single-faq [showHeading]="false" [faqArticle]="article"></app-single-faq>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-tab>
@@ -96,13 +80,7 @@
                             {{ article.title }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-markdown-div [innerHTML]="article.md"></app-markdown-div>
-                    <button mat-icon-button color="primary" (click)="openInNewTab(article.pageID)">
-                        <mat-icon>open_in_new</mat-icon>
-                    </button>
-                    <button mat-icon-button color="primary" (click)="copyFaqUrl(article.pageID)">
-                        <mat-icon>link</mat-icon>
-                    </button>
+                    <app-single-faq [showHeading]="false" [faqArticle]="article"></app-single-faq>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-tab>

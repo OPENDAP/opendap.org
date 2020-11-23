@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { FaqSection } from '../shared/models/faq.model';
 import { DataReaderService } from '../shared/services/data-reader.service';
 
@@ -17,9 +18,19 @@ export class FaqComponent {
     query: new FormControl({ value: null, disabled: false })
   });
 
-  constructor(public dataReaderService: DataReaderService) {
+  constructor(
+    public dataReaderService: DataReaderService,
+    private route: ActivatedRoute
+  ) {
     this.dataReaderService.getFAQData().subscribe(data => {
       this.faqData = data;
+
+      this.route.params.subscribe(params => {
+        if (params.searchTerm) {
+          this.queryForm.controls.query.setValue(params.searchTerm);
+          this.search();
+        }
+      });
     });
   }
 
@@ -65,8 +76,8 @@ export class FaqComponent {
     }
   }
 
-  public copyFaqUrl(articleID: string): void {
-    console.log(articleID);
+  public getFaqUrl(articleID: string): string {
+    return `https://www.opendap.org/support/faq/${articleID}`;
   }
 
   public openInNewTab(articleID: string): void {

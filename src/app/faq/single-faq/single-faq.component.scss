@@ -1,6 +1,8 @@
 .faq {
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 
     h1 {
         font-weight: 300;
@@ -10,6 +12,10 @@
     h2 {
         font-weight: 300;
         margin: 28px 0 14px 0;
+    }
+
+    .buttons {
+        margin-left: auto;
     }
 
     .mat-form-field {
