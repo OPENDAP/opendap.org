@@ -79,8 +79,4 @@ export class FaqComponent {
   public getFaqUrl(articleID: string): string {
     return `https://www.opendap.org/support/faq/${articleID}`;
   }
-
-  public openInNewTab(articleID: string): void {
-
-  }
 }
