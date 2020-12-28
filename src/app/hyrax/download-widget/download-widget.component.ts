@@ -5,13 +5,13 @@ import * as showdown from 'showdown';
 @Component({
   selector: 'app-download-widget',
   templateUrl: './download-widget.component.html',
-  styleUrls: ['./download-widget.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./download-widget.component.scss']
 })
 export class DownloadWidgetComponent implements OnInit {
   @Input() download: any;
   @Input() installation: string;
   @Input() title: string;
+  @Input() showTitle = true;
 
   constructor() { }
 
@@ -23,7 +23,7 @@ export class DownloadWidgetComponent implements OnInit {
 
   version: string;
 
-  async ngOnInit() {
+  ngOnInit(): void {
     this.version = this.download.version;
 
     for (const thisMarkdown of this.download) {
@@ -69,6 +69,7 @@ class Download {
 
     const links: HTMLCollectionOf<HTMLAnchorElement> = ghostDiv.getElementsByTagName('a');
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < links.length; i++) {
       links[i].target = '_blank';
     }

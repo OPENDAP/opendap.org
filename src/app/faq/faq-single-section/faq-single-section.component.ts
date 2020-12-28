@@ -6,7 +6,7 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
   selector: 'app-faq-single-section',
   templateUrl: './faq-single-section.component.html',
   styleUrls: ['./faq-single-section.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  
 })
 export class FaqSingleSectionComponent implements OnInit {
 

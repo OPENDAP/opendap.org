@@ -1,19 +1,19 @@
-<div class="landing">
-    <div class="candy-cane banner">
+<div class="home">
+    <div class="home__welcome mat-elevation-z5">
         <h1>OPeNDAP™</h1>
         <h2>Advanced Software for Remote Data Retrieval</h2>
 
-        <img src="../../../assets/images/extension-icon.png">
+        <img class="home__welcome--image" src="../../../assets/images/extension-icon.png">
 
         <h3>OPeNDAP is a framework that simplifies<br>all aspects of scientific data networking.</h3>
     </div>
 
-    <div class="candy-cane subsection">
-        <div class="icon-left icon-content">
-            <mat-icon class="massive-icon">edit</mat-icon>
-            <div>
+    <div>
+        <div class="home__section">
+            <mat-icon class="home__section--icon home__section--accent home__section--left-auto">edit</mat-icon>
+            <div class="home__section--content home__section--right-auto">
                 <h2>Design Principles</h2>
-                
+
                 <p>The design of the OPeNDAP software is based on the following two considerations:</p>
                 <ol>
                     <li>
@@ -31,11 +31,9 @@
                 </p>
             </div>
         </div>
-    </div>
 
-    <div class="candy-cane subsection">
-        <div class="icon-right icon-content">
-            <div>
+        <div class="home__section">
+            <div class="home__section--content home__section--left-auto">
                 <h2>User Application <mat-icon>arrow_forward</mat-icon> DAP Client</h2>
                 <p>
                     Once a user's data analysis application (or API) is made network-savvy
@@ -53,14 +51,12 @@
                     enable many applications to work as a DAP clients.
                 </p>
             </div>
-            <mat-icon class="massive-icon">code</mat-icon>
+            <mat-icon class="home__section--icon home__section--accent home__section--right-auto">code</mat-icon>
         </div>
-    </div>
 
-    <div class="candy-cane subsection">
-        <div class="icon-left icon-content">
-            <mat-icon class="massive-icon">beach_access</mat-icon>
-            <div>
+        <div class="home__section">
+            <mat-icon class="home__section--icon home__section--accent home__section--left-auto">beach_access</mat-icon>
+            <div class="home__section--content home__section--right-auto">
                 <h2>Not Just Oceanography</h2>
                 <p>
                     Although the OPeNDAP software was originally designed and developed
@@ -75,11 +71,9 @@
                 </p>
             </div>
         </div>
-    </div>
 
-    <div class="candy-cane subsection">
-        <div class="icon-right icon-content">
-            <div>
+        <div class="home__section">
+            <div class="home__section--content home__section--left-auto">
                 <h2>Community-Driven Projects</h2>
                 <p>
                     OPeNDAP software is open-source and is intended to facilitate building
@@ -94,14 +88,13 @@
                     <li>A set of DODS clients</li>
                 </ul>
             </div>
-            <mat-icon class="massive-icon">emoji_people</mat-icon>
+            <mat-icon class="home__section--icon home__section--accent home__section--right-auto">emoji_people
+            </mat-icon>
         </div>
-    </div>
 
-    <div class="candy-cane subsection">
-        <div class="icon-left icon-content">
-            <mat-icon class="massive-icon">language</mat-icon>
-            <div>                
+        <div class="home__section">
+            <mat-icon class="home__section--icon home__section--accent home__section--left-auto">language</mat-icon>
+            <div class="home__section--content home__section--right-auto">
                 <h2>What Does OPeNDAP Do For You?</h2>
                 <p>
                     OPeNDAP allows you to access remote data over the web...
@@ -114,42 +107,43 @@
 
                 <p>
                     OPeNDAP also allows you to make your data available remotely.
-                    Your data can be in a variety of formats, including netCDF, HDF, and 
+                    Your data can be in a variety of formats, including netCDF, HDF, and
                     <a href="https://www.opendap.org/support/OPeNDAP-servers">many more</a>.
                 </p>
             </div>
         </div>
-    </div>
 
-    <div class="candy-cane software">
-        <h1>Our Software</h1>
+        <div class="home__software">
+            <h2>Our Software</h2>
+            <div class="home__software--cards">
+                <mat-card>
+                    <mat-card-title>Hyrax</mat-card-title>
+                    <mat-card-subtitle>The next generation server from OPeNDAP</mat-card-subtitle>
+                    <mat-card-content>
+                        Hyrax uses a modular design that employs a lightweight Java servlet to provide the
+                        public-accessible
+                        client interface, and a back-end daemon, the BES, to handle the heavy lifting. The BES uses the
+                        same
+                        handlers that are used with Server3 (also know as the CGI Server) but loads those at run time.
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <a routerLink="/hyrax">
+                            <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                                <mat-icon>link</mat-icon>
+                            </button>
+                        </a>
+                    </mat-card-actions>
+                </mat-card>
 
-        <div class="software">
-            <mat-card>
-                <mat-card-title>Hyrax</mat-card-title>
-                <mat-card-subtitle>The next generation server from OPeNDAP</mat-card-subtitle>
-                <mat-card-content>
-                    Hyrax uses a modular design that employs a lightweight Java servlet to provide the public-accessible
-                    client interface, and a back-end daemon, the BES, to handle the heavy lifting. The BES uses the same
-                    handlers that are used with Server3 (also know as the CGI Server) but loads those at run time.
-                </mat-card-content>
-                <mat-card-actions>
-                    <a routerLink="/hyrax">
-                        <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-                            <mat-icon>link</mat-icon>
-                        </button>
-                    </a>
-                </mat-card-actions>
-            </mat-card>
-
-            <mat-card>
-                <mat-card-title>Libdap</mat-card-title>
-                <mat-card-subtitle>C++ SDK that contains an implementation of DAP 2.0 and DAP4.0</mat-card-subtitle>
-                <mat-card-content>
-                    The libdap includes both Client- and Server-side support classes.
-                    Our software distributions are signed using a public/private key pair.
-                </mat-card-content>
-            </mat-card>
+                <mat-card>
+                    <mat-card-title>Libdap</mat-card-title>
+                    <mat-card-subtitle>C++ SDK that contains an implementation of DAP 2.0 and DAP4.0</mat-card-subtitle>
+                    <mat-card-content>
+                        The libdap includes both Client- and Server-side support classes.
+                        Our software distributions are signed using a public/private key pair.
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

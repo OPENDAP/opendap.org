@@ -22,8 +22,12 @@ export class DataReaderService {
 
   constructor(private http: HttpClient) { }
 
+  getAdoc(pageID: string): Observable<string> {
+    return this.http.get<any>(`/api/adoc/${pageID}`);
+  }
+
   getPage(pageID: string): Observable<any> {
-    return this.http.get<any>(`/api/content/${pageID}`);
+    return this.http.get<any>(`/api/adoc/${pageID}`);
   }
 
   getAboutUsPage(): Observable<any> {

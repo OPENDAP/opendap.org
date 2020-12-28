@@ -1,9 +1,9 @@
-@import '../shared/sass/variables.scss';
+@import './variables.scss';
 
-.home {
+.content {
     display: flex;
     flex-direction: column;
-    margin-top: -50px;
+    margin-top: $height-toolbar;
 
     h1 {
         font-weight: 300;
@@ -23,7 +23,7 @@
         font-weight: 300;
     }
 
-    &__welcome {
+    &__above-fold {
         display: flex;
         flex-direction: column;
         z-index: 1;
@@ -42,31 +42,28 @@
         }
     }
 
-    &__software {
+    &__fold {
         display: flex;
-        flex-direction: column;
-        padding: 60px 30px;
 
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            text-align: center;
-            color: $primary;
-        }
-
-        &--cards {
+        &--block {
             display: flex;
-            max-width: 870px;
-            margin-left: auto;
-            margin-right: auto;
+            flex-direction: column;
+            padding: 0 15px;
+
+            p {
+                text-align: center !important;
+            }
+            
+            .mat-icon {
+                font-size: 75px !important;
+                width: 75px !important;
+                height: 75px !important;
+                margin-bottom: 15px !important;
+            }
         }
 
-        .mat-card {
-            width: 60%;
-
-            &:nth-child(1) {
-                margin-right: 15px;
-            }
+        &--tri {
+            width: 33%;
         }
     }
 
@@ -109,7 +106,7 @@
             font-size: 175px;
             width: 175px;
             height: 175px;
-            margin-top: 65px !important;
+            margin-top: 65px;
             background-clip: text;
             color: transparent;
         }

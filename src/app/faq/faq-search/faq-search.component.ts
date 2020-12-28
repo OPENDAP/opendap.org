@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-faq-search',
@@ -12,8 +12,7 @@ export class FaqSearchComponent {
   results = new Set();
 
   queryForm = new FormGroup({
-    query: new FormControl({ value: null, disabled: false }, [
-      Validators.required, Validators.minLength(1)])
+    query: new FormControl({ value: null, disabled: false })
   });
 
   search(): void {

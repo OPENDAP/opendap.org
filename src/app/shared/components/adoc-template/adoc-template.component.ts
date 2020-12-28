@@ -1,13 +1,12 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { DataReaderService } from '../shared/services/data-reader.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataReaderService } from '../../services/data-reader.service';
 
 @Component({
-  selector: 'app-markdown-module',
-  templateUrl: './markdown-module.component.html',
-  styleUrls: ['./markdown-module.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-adoc-template',
+  templateUrl: './adoc-template.component.html',
+  styleUrls: ['./adoc-template.component.scss']
 })
-export class MarkdownModuleComponent implements OnInit {
+export class AdocTemplateComponent implements OnInit {
   @Input() pageID: string;
 
   data: any;
@@ -21,7 +20,7 @@ export class MarkdownModuleComponent implements OnInit {
 
       this.headings = [];
 
-      for (let thisData of this.data.sections) {
+      for (const thisData of this.data.sections) {
         this.headings.push({
           title: thisData.title,
           id: thisData.id
