@@ -24,7 +24,8 @@ export class AdocComponent implements OnInit {
     if (this.pageName) {
       this.dataReader.getAdoc(this.pageName).subscribe(data => {
         this.data = data;
-      }, () => {
+      }, error => {
+        console.log(error);
         this.router.navigate(['/404']);
       }, () => {
         this.loading = false;
