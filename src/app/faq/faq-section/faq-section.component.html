@@ -1,13 +1,25 @@
-<div class="faq-section-body">
-    <mat-accordion>
-        <mat-expansion-panel *ngFor="let thing of faqSection">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{thing.title}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
+<div class="faq">
+  <h1 *ngIf="title && loadedFromURL">{{ title }}</h1>
 
-            <div [innerHTML]="thing.md"></div>
-        </mat-expansion-panel>
-    </mat-accordion>
+  <app-markdown-div [innerHTML]="body"></app-markdown-div>
+
+  <h2>Tags</h2>
+
+  <mat-chip-list aria-label="Tags">
+    <a *ngFor="let tag of tags" [routerLink]="tagRouterLink + tag">
+      <mat-chip>{{ tag }}</mat-chip>
+    </a>
+  </mat-chip-list>
+
+  <div class="actions">
+    <button mat-icon-button [cdkCopyToClipboard]="link">
+      <mat-icon>link</mat-icon>
+    </button>
+
+    <a *ngIf="!loadedFromURL" [routerLink]="routerLink" target="_blank">
+      <button mat-icon-button>
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </a>
+  </div>
 </div>

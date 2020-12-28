@@ -5,8 +5,7 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 @Component({
   selector: 'app-faq-single-section',
   templateUrl: './faq-single-section.component.html',
-  styleUrls: ['./faq-single-section.component.scss'],
-  
+  styleUrls: ['./faq-single-section.component.scss']
 })
 export class FaqSingleSectionComponent implements OnInit {
 
@@ -14,7 +13,7 @@ export class FaqSingleSectionComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataReaderService: DataReaderService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.dataReaderService.getFAQPage(params.article).subscribe(data => {
         this.data = data;
