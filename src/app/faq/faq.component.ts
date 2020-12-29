@@ -14,13 +14,13 @@ import { DataReaderService } from '../shared/services/data-reader.service';
     <mat-tab-group dynamicHeight>
         <mat-tab *ngFor="let key of keys" [label]="key | titlecase">
           <mat-accordion>
-            <mat-expansion-panel *ngFor="let thing of data[key]">
+            <mat-expansion-panel *ngFor="let faqSection of data[key]">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{thing.title}}
+                            {{faqSection.title}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-faq-section [faqSection]="thing"></app-faq-section>
+                    <app-faq-section [faqSection]="faqSection"></app-faq-section>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-tab>
