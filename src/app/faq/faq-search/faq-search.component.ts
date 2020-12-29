@@ -19,10 +19,6 @@ export class FaqSearchComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.query && this.query) {
       this.queryForm.controls.query.setValue(this.query);
-    }
-
-    if (changes.data && this.data && this.query) {
-      console.log(this.data);
       this.search();
     }
   }
