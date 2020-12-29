@@ -6,7 +6,33 @@ import { FaqSectionModel } from 'src/app/shared/models/faqSection.model';
 
 @Component({
   selector: 'app-faq-section',
-  templateUrl: './faq-section.component.html',
+  template: `
+    <div class="faq">
+      <h1 *ngIf="title && loadedFromURL">{{ title }}</h1>
+
+      <app-markdown-div [innerHTML]="body"></app-markdown-div>
+
+      <h2>Tags</h2>
+
+      <mat-chip-list aria-label="Tags">
+        <mat-chip *ngFor="let tag of tags">
+          <a [routerLink]="tagRouterLink + tag">{{ tag }}</a>
+        </mat-chip>
+      </mat-chip-list>
+
+      <div class="actions">
+        <button mat-icon-button [cdkCopyToClipboard]="link">
+          <mat-icon color="primary">link</mat-icon>
+        </button>
+
+        <a *ngIf="!loadedFromURL" [routerLink]="routerLink" target="_blank">
+          <button mat-icon-button>
+            <mat-icon color="primary">open_in_new</mat-icon>
+          </button>
+        </a>
+      </div>
+    </div>
+  `,
   styleUrls: ['./faq-section.component.scss']
 })
 export class FaqSectionComponent implements OnChanges {
