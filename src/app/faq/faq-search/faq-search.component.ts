@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,8 +6,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './faq-search.component.html',
   styleUrls: ['./faq-search.component.scss']
 })
-export class FaqSearchComponent {
+export class FaqSearchComponent implements OnChanges {
   @Input() data: any;
+  @Input() query: string;
 
   results = new Set();
 
@@ -15,11 +16,22 @@ export class FaqSearchComponent {
     query: new FormControl({ value: null, disabled: false })
   });
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.query && this.query) {
+      this.queryForm.controls.query.setValue(this.query);
+      this.search();
+    }
+  }
+
   search(): void {
     if (this.queryForm.valid) {
       this.results.clear();
 
-      for (const section of this.data) {
+      const keys = Object.keys(this.data);
+
+      for (const sectionKey of keys) {
+        const section = this.data[sectionKey];
+
         for (const article of section) {
           out:
           for (const tag of article.tags) {

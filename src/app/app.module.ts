@@ -9,7 +9,6 @@ import { ReleasesComponent } from './releases/releases.component';
 import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
 import { AboutUsComponent, SoftwareComponent, SupportComponent } from './content.components';
 import { FaqComponent } from './faq/faq.component';
-import { FaqSingleSectionComponent } from './faq/faq-single-section/faq-single-section.component';
 import { FaqSearchComponent } from './faq/faq-search/faq-search.component';
 import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
 
@@ -37,7 +36,6 @@ import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-te
     SoftwareComponent,
     SupportComponent,
     FaqComponent,
-    FaqSingleSectionComponent,
     FaqSearchComponent,
     FaqSectionComponent,
     FooterComponent,
