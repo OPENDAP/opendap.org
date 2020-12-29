@@ -1,6 +1,10 @@
 @import '../app/shared/sass/variables.scss';
 
+.body {
+  height: 100%;
+}
+
 .content {
-    margin-top: $height-toolbar;
-    padding-top: 25px;
+    padding-top: calc(25px + #{$height-toolbar});
+    min-height: calc(100% - (25px + #{$height-toolbar}) - #{$height-footer})
 }

@@ -1,7 +1,12 @@
-footer {
-    padding-top: 3em;
-    padding-bottom: 3em;
+@import '../../../app/shared/sass/variables.scss';
 
-    text-align: center;
-    line-height: 25px;
+footer {
+  display: flex;
+  text-align: center;
+  line-height: 150%;
+  height: $height-footer;
+
+  p {
+    margin: auto;
+  }
 }
