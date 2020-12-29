@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'about', component: AboutUsComponent },
   { path: 'support', component: SupportComponent },
   { path: 'support/faq', component: FaqComponent },
+  { path: 'support/faq/search/:query', component: FaqComponent },
   { path: 'support/faq/:article', component: FaqSectionComponent },
   { path: 'software', component: SoftwareComponent },
   { path: 'software/hyrax', component: HyraxComponent },

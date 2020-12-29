@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { DataReaderService } from '../shared/services/data-reader.service';
 
@@ -8,7 +9,11 @@ import { DataReaderService } from '../shared/services/data-reader.service';
   <div class="body">
     <h1>How can we help you?</h1>
 
-    <app-faq-search *ngIf="data" [data]="data"></app-faq-search>
+    <app-faq-search
+      *ngIf="data"
+      [data]="data"
+      [query]="urlQuery">
+    </app-faq-search>
 
     <h1>Frequently Asked Questions</h1>
     <mat-tab-group dynamicHeight>
@@ -55,8 +60,18 @@ import { DataReaderService } from '../shared/services/data-reader.service';
 })
 export class FaqComponent implements OnInit {
   data: any;
+  urlQuery: string;
 
-  constructor(private dataReaderService: DataReaderService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private dataReaderService: DataReaderService
+  ) {
+    this.route.params.subscribe(params => {
+      if (params.query) {
+        this.urlQuery = params.query;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.dataReaderService.getFAQData().subscribe(data => {

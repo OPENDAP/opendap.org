@@ -16,7 +16,7 @@ import { FaqSectionModel } from 'src/app/shared/models/faqSection.model';
 
       <mat-chip-list aria-label="Tags">
         <mat-chip *ngFor="let tag of tags">
-          <a [routerLink]="tagRouterLink + tag">{{ tag }}</a>
+          <a [routerLink]="queryUrl(tag)">{{ tag }}</a>
         </mat-chip>
       </mat-chip-list>
 
@@ -40,14 +40,11 @@ export class FaqSectionComponent implements OnChanges {
 
   public loadedFromURL = true;
 
-  public tagRouterLink = 'support/faq/tag/';
-
   constructor(private route: ActivatedRoute, private dataReaderService: DataReaderService) {
     this.route.params.subscribe(params => {
       if (params.article) {
         this.dataReaderService.getFAQPage(params.article).subscribe(data => {
           this.faqSection = data;
-          console.log(data);
         });
       }
     });
@@ -77,5 +74,9 @@ export class FaqSectionComponent implements OnChanges {
   get routerLink(): string {
     return this.faqSection && this.faqSection.url ?
       `/support/faq/${this.faqSection.url}` : '';
+  }
+
+  public queryUrl(tag: string): string {
+    return `/support/faq/search/${tag}`;
   }
 }
