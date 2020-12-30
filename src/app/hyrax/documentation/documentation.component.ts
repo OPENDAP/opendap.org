@@ -4,31 +4,63 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 @Component({
   selector: 'app-documentation',
   template: `
-    <!-- <iframe
-      id="documentation"
-      src="https://opendap.github.io/hyrax_guide/Master_Hyrax_Guide.html"
-      title="The Hyrax Data Server Installation and Configuration Guide">
-    </iframe> -->
-    <div [innerHTML]="guide"></div>
+    <div id="body" class="body"></div>
   `,
-  styles: [`
-    iframe {
-      margin-top: 50px;
-      border: 0;
-      width: 100%;
-    }
-  `]
+  styleUrls: ['documentation.component.scss']
 })
 export class DocumentationComponent {
 
-  guide: string;
-
   constructor(public dataReaderService: DataReaderService) {
     this.dataReaderService.getHyraxGuide().subscribe((response: any) => {
-      console.log(response);
-      this.guide = response.data;
+      const fullGuide: HTMLDivElement = document.createElement('div');
+      fullGuide.innerHTML = response.data;
+
+      let guide: HTMLDivElement;
+
+      const tags = fullGuide.getElementsByTagName('*');
+      for (let i = 0; i < tags.length; i++) {
+        if (tags[i].id === 'content') {
+          guide = (tags[i] as HTMLDivElement);
+        }
+      }
+
+      const icons = guide.getElementsByClassName('icon');
+      for (let i = 0; i < icons.length; i++) {
+        const icon = icons[i].firstElementChild;
+
+        if (icon.classList.contains('icon-note')) { this.replaceIcon(icon, 'sticky_notes_2'); }
+        else if (icon.classList.contains('icon-tip')) { this.replaceIcon(icon, 'school'); }
+        else if (icon.classList.contains('icon-warning')) { this.replaceIcon(icon, 'warning', 'warn'); }
+        else if (icon.classList.contains('icon-important')) { this.replaceIcon(icon, 'info', 'accent'); }
+        else if (icon.classList.contains('icon-caution')) { this.replaceIcon(icon, 'assignment_late', 'warn'); }
+      }
+
+      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-note'), 'sticky_note_2');
+      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-tip'), 'school');
+      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-warning'), 'warning', 'warn');
+      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-important'), 'info', 'accent');
+      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-caution'), 'assignment_late', 'warn');
+
+      document.getElementById('body').appendChild(guide);
     }, error => {
       console.log(error);
     });
+  }
+
+  private replaceWithMatIcon(icons: HTMLCollectionOf<Element>, iconName: string, color = 'primary'): void {
+    for (let i = 0; i < icons.length; i++) {
+      this.replaceIcon(icons[i], iconName, color);
+    }
+  }
+
+  private replaceIcon(icon: any, iconName: string, color = 'primary'): void {
+    const newIcon = document.createElement('span');
+    newIcon.classList.add('material-icons');
+    newIcon.classList.add(color);
+    newIcon.appendChild(document.createTextNode(iconName));
+
+    const parent = icon.parentElement;
+    parent.removeChild(icon);
+    parent.appendChild(newIcon);
   }
 }

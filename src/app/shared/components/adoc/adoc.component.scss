@@ -1,94 +1,97 @@
-@import '../../sass/variables.scss';
+@import "../../sass/variables.scss";
 
 :host ::ng-deep .body {
-    // margin-top: $height-toolbar;
-    // padding-top: 25px;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 130%;
+  // margin-top: $height-toolbar;
+  // padding-top: 25px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 130%;
 
-    .content {
-        margin: 0;
-    }
+  .content {
+    margin: 0;
+  }
 
-    h2 {
-        font-weight: 300;
-        font-size: 1.75em;
-        border-bottom: solid 1px $primary;
-        color: $primary;
-        padding-bottom: 7px;
-        padding-top: 14px;
-    }
+  h2 {
+    font-weight: 300;
+    font-size: 1.75em;
+    border-bottom: solid 1px $primary;
+    color: $primary;
+    padding-bottom: 7px;
+    padding-top: 14px;
+  }
 
-    h3 {
-        font-weight: 300;
-        font-size: 1.5em;
-        color: $accent;
-        border-bottom: solid 1px $accent;
-        padding-bottom: 7px;
-    }
+  h3 {
+    font-weight: 300;
+    font-size: 1.5em;
+    color: $accent;
+    border-bottom: solid 1px $accent;
+    padding-bottom: 7px;
+  }
 
-    h4 {
-        font-weight: 300;
-        font-size: 1.25em;
-    }
+  h4 {
+    font-weight: 300;
+    font-size: 1.25em;
+  }
 
-    p, ul, ol {
-        line-height: 140%;
-        color: $text-colorA;
-        text-align: justify;
-    }
+  p,
+  ul,
+  ol {
+    line-height: 140%;
+    color: $text-colorA;
+    text-align: justify;
+  }
 
-    ul ul {
-        margin-top: 7px;
-        margin-bottom: 7px;
-    }
+  ul ul {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
 
+  p {
+    font-size: 1.15em;
+  }
+
+  li {
     p {
-        font-size: 1.15em;
+      margin: 0;
+    }
+  }
+
+  pre code {
+    width: 100%;
+    display: flex;
+    padding: 10px 20px;
+  }
+
+  code {
+    background: whitesmoke;
+    padding: 3px 5px;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  table {
+    h3,
+    h4 {
+      margin: 0;
+      padding: 0;
+      color: $text-colorA;
+      border-bottom: none;
     }
 
-    li {
-        p {
-            margin: 0;
-        }
+    p:nth-child(1) {
+      margin-top: 7px;
     }
 
-    pre code {
-        width: 100%;
-        display: flex;
-        padding: 10px 20px;
+    td {
+      vertical-align: top;
+
+      img {
+        margin-top: 6px;
+        margin-right: 14px;
+      }
     }
-
-    code {
-        background: whitesmoke;
-        padding: 3px 5px;
-    }
-
-    strong {
-        font-weight: 500;
-    }
-
-    table {
-        h3, h4 {
-            margin: 0;
-            padding: 0;
-            color: $text-colorA;
-            border-bottom: none;
-        }
-
-        p:nth-child(1) {
-                margin-top: 7px;
-        }
-
-        td {
-            vertical-align: top;
-
-            img {
-                margin-top: 6px;
-                margin-right: 14px;
-            }
-        }
-    }
+  }
 }
