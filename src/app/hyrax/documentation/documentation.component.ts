@@ -14,36 +14,54 @@ export class DocumentationComponent {
     this.dataReaderService.getHyraxGuide().subscribe((response: any) => {
       const fullGuide: HTMLDivElement = document.createElement('div');
       fullGuide.innerHTML = response.data;
+      console.log(fullGuide);
 
-      let guide: HTMLDivElement;
+      const guide = this.extractContent(fullGuide);
+      const toc = this.extractTOC(guide);
 
-      const tags = fullGuide.getElementsByTagName('*');
-      for (let i = 0; i < tags.length; i++) {
-        if (tags[i].id === 'content') {
-          guide = (tags[i] as HTMLDivElement);
-        }
-      }
+      this.replaceIcons(guide);
 
-      const icons = guide.getElementsByClassName('icon');
-      for (let i = 0; i < icons.length; i++) {
-        const icon = icons[i].firstElementChild;
-
-        if (icon.classList.contains('icon-note')) { this.replaceIcon(icon, 'sticky_note_2'); }
-        else if (icon.classList.contains('icon-tip')) { this.replaceIcon(icon, 'school'); }
-        else if (icon.classList.contains('icon-warning')) { this.replaceIcon(icon, 'warning', 'warn'); }
-        else if (icon.classList.contains('icon-important')) { this.replaceIcon(icon, 'info', 'tip'); }
-        else if (icon.classList.contains('icon-caution')) { this.replaceIcon(icon, 'assignment_late', 'warn'); }
-      }
-
-      document.getElementById('body').appendChild(guide);
+      document.getElementById('body').appendChild(toc);
     }, error => {
       console.log(error);
     });
   }
 
-  private replaceWithMatIcon(icons: HTMLCollectionOf<Element>, iconName: string, color = 'primary'): void {
+  private extractContent(fullGuide: HTMLDivElement): HTMLDivElement {
+    const tags = fullGuide.getElementsByTagName('*');
+
+    for (let i = 0; i < tags.length; i++) {
+      if (tags[i].id === 'content') {
+        return (tags[i] as HTMLDivElement);
+      }
+    }
+  }
+
+  private extractTOC(content: HTMLDivElement): HTMLDivElement {
+    const tags = content.getElementsByTagName('*');
+
+    const headings = document.createElement('div');
+    headings.classList.add('table_of_contents');
+
+    for (let i = 0; i < tags.length; i++) {
+      if (tags[i].tagName.startsWith('H') && !tags[i].tagName.endsWith('R')) {
+        headings.appendChild(tags[i] as HTMLElement);
+      }
+    }
+
+    return headings;
+  }
+
+  private replaceIcons(guide: HTMLDivElement): void {
+    const icons = guide.getElementsByClassName('icon');
     for (let i = 0; i < icons.length; i++) {
-      this.replaceIcon(icons[i], iconName, color);
+      const icon = icons[i].firstElementChild;
+
+      if (icon.classList.contains('icon-note')) { this.replaceIcon(icon, 'sticky_note_2'); }
+      else if (icon.classList.contains('icon-tip')) { this.replaceIcon(icon, 'school'); }
+      else if (icon.classList.contains('icon-warning')) { this.replaceIcon(icon, 'warning', 'warn'); }
+      else if (icon.classList.contains('icon-important')) { this.replaceIcon(icon, 'info', 'tip'); }
+      else if (icon.classList.contains('icon-caution')) { this.replaceIcon(icon, 'assignment_late', 'warn'); }
     }
   }
 
