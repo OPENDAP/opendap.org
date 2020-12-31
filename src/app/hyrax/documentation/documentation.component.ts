@@ -28,18 +28,12 @@ export class DocumentationComponent {
       for (let i = 0; i < icons.length; i++) {
         const icon = icons[i].firstElementChild;
 
-        if (icon.classList.contains('icon-note')) { this.replaceIcon(icon, 'sticky_notes_2'); }
+        if (icon.classList.contains('icon-note')) { this.replaceIcon(icon, 'sticky_note_2'); }
         else if (icon.classList.contains('icon-tip')) { this.replaceIcon(icon, 'school'); }
         else if (icon.classList.contains('icon-warning')) { this.replaceIcon(icon, 'warning', 'warn'); }
-        else if (icon.classList.contains('icon-important')) { this.replaceIcon(icon, 'info', 'accent'); }
+        else if (icon.classList.contains('icon-important')) { this.replaceIcon(icon, 'info', 'tip'); }
         else if (icon.classList.contains('icon-caution')) { this.replaceIcon(icon, 'assignment_late', 'warn'); }
       }
-
-      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-note'), 'sticky_note_2');
-      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-tip'), 'school');
-      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-warning'), 'warning', 'warn');
-      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-important'), 'info', 'accent');
-      // this.replaceWithMatIcon(guide.getElementsByClassName('icon-caution'), 'assignment_late', 'warn');
 
       document.getElementById('body').appendChild(guide);
     }, error => {
