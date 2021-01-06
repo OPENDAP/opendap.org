@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 
+import { HyraxTocModel } from 'src/app/shared/models/hyrax-toc.model';
+
 @Component({
   selector: 'app-documentation',
   template: `
@@ -10,11 +12,17 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 })
 export class DocumentationComponent {
 
+  private parentNode = {
+    level: 1,
+    id: 'toc',
+    text: 'Table of Contents',
+    children: new Array<any>()
+ };
+
   constructor(public dataReaderService: DataReaderService) {
     this.dataReaderService.getHyraxGuide().subscribe((response: any) => {
       const fullGuide: HTMLDivElement = document.createElement('div');
       fullGuide.innerHTML = response.data;
-      console.log(fullGuide);
 
       const guide = this.extractContent(fullGuide);
       const toc = this.extractTOC(guide);
@@ -40,16 +48,36 @@ export class DocumentationComponent {
   private extractTOC(content: HTMLDivElement): HTMLDivElement {
     const tags = content.getElementsByTagName('*');
 
-    const headings = document.createElement('div');
-    headings.classList.add('table_of_contents');
+    const headingTags = new Array<any>();
 
     for (let i = 0; i < tags.length; i++) {
       if (tags[i].tagName.startsWith('H') && !tags[i].tagName.endsWith('R')) {
-        headings.appendChild(tags[i] as HTMLElement);
+        headingTags.push({
+          level: Number.parseInt(tags[i].tagName.substring(1), 10),
+          id: tags[i].id,
+          text: tags[i].textContent,
+          children: new Array<any>()
+        });
       }
     }
 
-    return headings;
+    this.findImmediateChildren(this.parentNode, headingTags);
+    console.log(this.parentNode);
+
+    return content;
+  }
+
+  private findImmediateChildren(parent: any, children: Array<any>): any {
+    do {
+      const child = children.shift();
+
+      if (child && child.level === parent.level + 1) {
+        parent.children.push(this.findImmediateChildren(child, children));
+      } else {
+        children.unshift(child);
+        return parent;
+      }
+    } while (children.length > 0);
   }
 
   private replaceIcons(guide: HTMLDivElement): void {

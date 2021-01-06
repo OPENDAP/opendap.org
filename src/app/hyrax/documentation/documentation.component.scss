@@ -3,7 +3,7 @@
 :host ::ng-deep .body {
 
   .table_of_contents {
-    h1, h2, h3, h4, h5, h6, h7 {
+    h1, h2, h3, h4, h5, h6, h7, h8, h9 {
       font-size: 1em;
       margin: 0;
     }
@@ -29,7 +29,18 @@
     }
 
     h7 {
+      display: block;
       margin-left: 60px;
+    }
+
+    h8 {
+      display: block;
+      margin-left: 70px;
+    }
+
+    h9 {
+      display: block;
+      margin-left: 80px;
     }
   }
 
