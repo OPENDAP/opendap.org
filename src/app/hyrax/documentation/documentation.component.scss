@@ -1,8 +1,47 @@
 @import "../../../app/shared/sass/variables.scss";
 
 :host ::ng-deep .body {
+  display: flex;
+  width: 100vw;
 
-  .table_of_contents {
+  margin-left: auto;
+  margin-right: auto;
+
+
+  .content {
+    width: calc(100% - 500px);
+  }
+
+  .toc {
+    width: 300px;
+
+    ol {
+      list-style-type: none;
+      counter-reset: item;
+      margin: 0;
+      padding: 0;
+    }
+    
+    ol > li {
+      display: table;
+      counter-increment: item;
+      margin-bottom: 0.6em;
+    }
+    
+    ol > li:before {
+      content: counters(item, ".") ". ";
+      display: table-cell;
+      padding-right: 0.6em;    
+    }
+    
+    li ol > li {
+      margin: 0;
+    }
+    
+    li ol > li:before {
+      content: counters(item, ".") " ";
+    }
+
     h1, h2, h3, h4, h5, h6, h7, h8, h9 {
       font-size: 1em;
       margin: 0;
@@ -44,9 +83,6 @@
     }
   }
 
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
   article,
   aside,
   details,

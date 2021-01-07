@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataReaderService } from 'src/app/shared/services/data-reader.service';
-
-import { HyraxTocModel } from 'src/app/shared/models/hyrax-toc.model';
 
 @Component({
   selector: 'app-documentation',
   template: `
-    <div id="body" class="body"></div>
+    <div id="body" class="body">
+      <div id="toc" class="toc"></div>
+      <div id="content" class="content"><div>
+    </div>
   `,
   styleUrls: ['documentation.component.scss']
 })
@@ -17,7 +18,7 @@ export class DocumentationComponent {
     id: 'toc',
     text: 'Table of Contents',
     children: new Array<any>()
- };
+  };
 
   constructor(public dataReaderService: DataReaderService) {
     this.dataReaderService.getHyraxGuide().subscribe((response: any) => {
@@ -25,11 +26,12 @@ export class DocumentationComponent {
       fullGuide.innerHTML = response.data;
 
       const guide = this.extractContent(fullGuide);
-      const toc = this.extractTOC(guide);
-
       this.replaceIcons(guide);
 
-      document.getElementById('body').appendChild(toc);
+      const toc = this.extractTOC(guide);
+
+      document.getElementById('toc').appendChild(toc);
+      document.getElementById('content').innerHTML = guide.innerHTML;
     }, error => {
       console.log(error);
     });
@@ -45,7 +47,7 @@ export class DocumentationComponent {
     }
   }
 
-  private extractTOC(content: HTMLDivElement): HTMLDivElement {
+  private extractTOC(content: HTMLDivElement): HTMLUListElement {
     const tags = content.getElementsByTagName('*');
 
     const headingTags = new Array<any>();
@@ -61,23 +63,46 @@ export class DocumentationComponent {
       }
     }
 
-    this.findImmediateChildren(this.parentNode, headingTags);
-    console.log(this.parentNode);
+    this.buildTree(this.parentNode, headingTags);
+    const toc = this.makeTOC(this.parentNode);
 
-    return content;
+    return toc;
   }
 
-  private findImmediateChildren(parent: any, children: Array<any>): any {
+  private buildTree(parent: any, children: Array<any>): any {
     do {
       const child = children.shift();
 
       if (child && child.level === parent.level + 1) {
-        parent.children.push(this.findImmediateChildren(child, children));
+        parent.children.push(this.buildTree(child, children));
       } else {
         children.unshift(child);
         return parent;
       }
     } while (children.length > 0);
+  }
+
+  private makeTOC(toc: any): HTMLUListElement {
+    const list = document.createElement('ol');
+    list.classList.add('nested');
+
+    toc.children.forEach(child => {
+      const a = document.createElement('a');
+      a.appendChild(document.createTextNode(child.text));
+      a.href = `/software/hyrax/guide#${child.id}`;
+
+      const li = document.createElement('li');
+      li.classList.add('ol');
+      li.appendChild(a);
+
+      if (child.children) {
+        li.appendChild(this.makeTOC(child));
+      }
+
+      list.appendChild(li);
+    });
+
+    return list;
   }
 
   private replaceIcons(guide: HTMLDivElement): void {
