@@ -41,46 +41,6 @@
     li ol > li:before {
       content: counters(item, ".") " ";
     }
-
-    h1, h2, h3, h4, h5, h6, h7, h8, h9 {
-      font-size: 1em;
-      margin: 0;
-    }
-
-    h2 {
-      margin-left: 10px;
-    }
-
-    h3 {
-      margin-left: 20px;
-    }
-
-    h4 {
-      margin-left: 30px;
-    }
-
-    h5 {
-      margin-left: 40px;
-    }
-
-    h6 {
-      margin-left: 50px;
-    }
-
-    h7 {
-      display: block;
-      margin-left: 60px;
-    }
-
-    h8 {
-      display: block;
-      margin-left: 70px;
-    }
-
-    h9 {
-      display: block;
-      margin-left: 80px;
-    }
   }
 
   article,
