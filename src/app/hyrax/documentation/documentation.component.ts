@@ -4,16 +4,18 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 @Component({
   selector: 'app-documentation',
   template: `
-    <div id="body" class="body">
-      <div id="toc" class="toc"></div>
-      <div id="content" class="content"><div>
+    <div id="body" class="manual-body">
+      <div class="toc-panel">
+        <app-toc-level [node]="parentNode"></app-toc-level>
+      </div>
+      <div id="manual-content" class="manual-content"><div>
     </div>
   `,
   styleUrls: ['documentation.component.scss']
 })
 export class DocumentationComponent {
 
-  private parentNode = {
+  public parentNode = {
     level: 1,
     id: 'toc',
     text: 'Table of Contents',
@@ -27,11 +29,9 @@ export class DocumentationComponent {
 
       const guide = this.extractContent(fullGuide);
       this.replaceIcons(guide);
+      this.extractTOC(guide);
 
-      const toc = this.extractTOC(guide);
-
-      document.getElementById('toc').appendChild(toc);
-      document.getElementById('content').innerHTML = guide.innerHTML;
+      document.getElementById('manual-content').innerHTML = guide.innerHTML;
     }, error => {
       console.log(error);
     });
@@ -47,7 +47,7 @@ export class DocumentationComponent {
     }
   }
 
-  private extractTOC(content: HTMLDivElement): HTMLUListElement {
+  private extractTOC(content: HTMLDivElement): void {
     const tags = content.getElementsByTagName('*');
 
     const headingTags = new Array<any>();
@@ -64,9 +64,6 @@ export class DocumentationComponent {
     }
 
     this.buildTree(this.parentNode, headingTags);
-    const toc = this.makeTOC(this.parentNode);
-
-    return toc;
   }
 
   private buildTree(parent: any, children: Array<any>): any {
@@ -80,29 +77,6 @@ export class DocumentationComponent {
         return parent;
       }
     } while (children.length > 0);
-  }
-
-  private makeTOC(toc: any): HTMLUListElement {
-    const list = document.createElement('ol');
-    list.classList.add('nested');
-
-    toc.children.forEach(child => {
-      const a = document.createElement('a');
-      a.appendChild(document.createTextNode(child.text));
-      a.href = `/software/hyrax/guide#${child.id}`;
-
-      const li = document.createElement('li');
-      li.classList.add('ol');
-      li.appendChild(a);
-
-      if (child.children) {
-        li.appendChild(this.makeTOC(child));
-      }
-
-      list.appendChild(li);
-    });
-
-    return list;
   }
 
   private replaceIcons(guide: HTMLDivElement): void {
