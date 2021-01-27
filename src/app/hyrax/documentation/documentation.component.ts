@@ -8,7 +8,12 @@ import { DataReaderService } from 'src/app/shared/services/data-reader.service';
       <div class="toc-panel">
         <app-toc-level [node]="parentNode"></app-toc-level>
       </div>
-      <div id="manual-content" class="manual-content"><div>
+      <div class="manual-content">
+        <div class="inner-div">
+        <h1>The Hyrax Data Server Installation and Configuration Guide</h1>
+        <div id="manual-content"></div>
+        </div>
+      <div>
     </div>
   `,
   styleUrls: ['documentation.component.scss']

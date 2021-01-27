@@ -5,13 +5,12 @@ import { Component, Input, ViewChild } from '@angular/core';
   template: `
   <div>
     <div class="toc" (mouseenter)="showActions(true)" (mouseleave)="showActions(false)">
-      <mat-icon class="icon">{{ arrowIcon }}</mat-icon>
-      <div class="text" (click)="hideChildren()">
+      <mat-icon class="icon" (click)="hideChildren()">
+        {{ arrowIcon }}
+      </mat-icon>
+      <div class="text" (click)="followLink(node)">
         {{node.text}}
       </div>
-      <button class="actions" #actions>
-        <mat-icon>link</mat-icon>
-      </button>
     </div>
     <div #child [style]="leftMargin">
       <app-toc-level
@@ -47,6 +46,10 @@ export class TocLevelComponent {
   hideChildren(): void {
     this.show = !this.show;
     this.content.nativeElement.style.display = this.show ? null : 'none';
+  }
+
+  followLink(node: any): void {
+    console.log(node);
   }
 
   showActions(show: boolean): void {
