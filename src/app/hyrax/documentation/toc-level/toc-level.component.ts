@@ -9,7 +9,10 @@ import { Component, Input, ViewChild } from '@angular/core';
         {{ arrowIcon }}
       </mat-icon>
       <div class="text" (click)="followLink(node)">
-        {{node.text}}
+        <a [href]="'/#' + node.id">
+          {{ node.levelNum }}
+          {{node.displayText}}
+        </a>
       </div>
     </div>
     <div #child [style]="leftMargin">
