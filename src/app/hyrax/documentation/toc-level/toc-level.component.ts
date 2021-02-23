@@ -9,7 +9,7 @@ import { Component, Input, ViewChild } from '@angular/core';
         {{ arrowIcon }}
       </mat-icon>
       <div class="text" (click)="followLink(node)">
-        <a [href]="'/#' + node.id">
+        <a [routerLink]='"."' [fragment]="node.id">
           {{ node.levelNum }}
           {{node.displayText}}
         </a>
@@ -24,7 +24,7 @@ import { Component, Input, ViewChild } from '@angular/core';
     </div>
   </div>
   `,
-  styleUrls: ['toc-level.component.scss']
+  styleUrls: ['toc-level.component.scss'],
 })
 export class TocLevelComponent {
   @Input() node: any;

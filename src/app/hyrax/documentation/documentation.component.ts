@@ -55,6 +55,7 @@ export class DocumentationComponent {
 
     for (let i = 0; i < tags.length; i++) {
       if (tags[i].tagName.startsWith('H') && !tags[i].tagName.endsWith('R')) {
+        tags[i].id = tags[i].textContent.replace(/ /g, '_').toLowerCase();
         headingTags.push(new TocNode(
           Number.parseInt(tags[i].tagName.substring(1), 10),
           tags[i].id, tags[i].textContent));

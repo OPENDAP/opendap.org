@@ -25,6 +25,7 @@ import { DocumentationComponent } from './hyrax/documentation/documentation.comp
 import { AdocComponent } from './shared/components/adoc/adoc.component';
 import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-template.component';
 import { TocLevelComponent } from './hyrax/documentation/toc-level/toc-level.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TocLevelComponent } from './hyrax/documentation/toc-level/toc-level.com
     DemoMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
