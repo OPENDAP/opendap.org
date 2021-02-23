@@ -22,6 +22,7 @@ import { TocNode } from './models/toc-node.model';
 export class DocumentationComponent {
 
   public parentNode: TocNode = new TocNode(1, 'toc', 'Table of Contents');
+  public flatTOC: Array<TocNode> = new Array<TocNode>();
 
   constructor(public dataReaderService: DataReaderService) {
     this.dataReaderService.getHyraxGuide().subscribe((response: any) => {
@@ -30,7 +31,8 @@ export class DocumentationComponent {
 
       const guide = this.extractContent(fullGuide);
       this.replaceIcons(guide);
-      this.extractTOC(guide);
+      this.extractTOC(guide, guide);
+      this.addTOCNumberingToDocument(guide);
 
       document.getElementById('manual-content').innerHTML = guide.innerHTML;
     }, error => {
@@ -48,7 +50,7 @@ export class DocumentationComponent {
     }
   }
 
-  private extractTOC(content: HTMLDivElement): void {
+  private extractTOC(content: HTMLDivElement, body: HTMLDivElement): void {
     const tags = content.getElementsByTagName('*');
 
     const headingTags = new Array<TocNode>();
@@ -90,11 +92,24 @@ export class DocumentationComponent {
     for (const child of root.children) {
       child.levelNum = parentNumber + num + '.';
 
+      this.flatTOC.push(child);
+
       if (child.children.length > 0) {
         this.numberTOC(child, child.levelNum);
       }
 
       num += 1;
+    }
+  }
+
+  addTOCNumberingToDocument(body: HTMLDivElement): void {
+    const tags = body.getElementsByTagName('*');
+    for (let i = 0; i < tags.length; i++) {
+      const tocNode = this.flatTOC.find((node: TocNode) => tags[i].id === node.id);
+
+      if (tocNode) {
+        tags[i].textContent = `${tocNode.levelNum} ${tocNode.displayText}`;
+      }
     }
   }
 
