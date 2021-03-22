@@ -22,6 +22,10 @@ export class DataReaderService {
 
   constructor(private http: HttpClient) { }
 
+  getHyraxGuide(): Observable<string> {
+    return this.http.get<any>(`/api/hyrax/guide`);
+  }
+
   getAdoc(pageID: string): Observable<string> {
     return this.http.get<any>(`/api/adoc/${pageID}`);
   }

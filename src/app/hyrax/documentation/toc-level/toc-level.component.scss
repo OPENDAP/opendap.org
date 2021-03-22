@@ -1,0 +1,40 @@
+@import "../../../../app/shared/sass/variables.scss";
+
+.toc {
+    display: flex;
+
+    $icon-width: 25px;
+
+    width: 100%;
+    height: 100%;
+
+    .icon {
+        width: $icon-width;
+        cursor: pointer;
+    }
+
+    .text {
+        width: calc(100% - #{$icon-width});
+        padding: 0 1em 0 0;
+        font-size: 1em;
+        overflow: hidden;
+    }
+
+    .actions {
+        width: $icon-width;
+    }
+
+    button {
+        padding: 0;
+        border: none;
+        margin: 0;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    &:hover {
+        color: $primary;
+    }
+}

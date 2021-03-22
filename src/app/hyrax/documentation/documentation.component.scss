@@ -1,6 +1,41 @@
-iframe {
-    margin-top: 50px;
-    border: 0;
-    width: 100%;
-    height: calc(100% - 165px - 50px);
+@import "../../../app/shared/sass/variables.scss";
+@import "../../../app/shared/sass/adoc.scss";
+
+.manual-body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  margin-top: -25px;
+
+  .adoc-body {
+    margin-left: 400px;
+    width: calc(100% - 400px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .inner-div {
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .toc-panel {
+    padding-top: 16px;
+    padding-left: 8px;
+    width: 400px;
+    max-height: calc(100vh - 50px);
+    height: calc(100vh - 50px);
+    overflow-x: hidden;
+    position: fixed;
+
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #888; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
 }
