@@ -23,6 +23,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/shared/sass"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -88,6 +93,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/shared/sass"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"

@@ -3,61 +3,40 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingComponent } from './landing/landing.component';
-import { HyraxComponent } from './hyrax/hyrax.component';
-import { ReleasesComponent } from './releases/releases.component';
-import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
 import { AboutUsComponent, SoftwareComponent, SupportComponent } from './content.components';
-import { FaqComponent } from './faq/faq.component';
-import { FaqSearchComponent } from './faq/faq-search/faq-search.component';
-import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
 
-import { DemoMaterialModule } from './material-module';
+import { MaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './navigation/footer/footer.component';
-import { NavComponent } from './navigation/nav/nav.component';
-import { NavigationDockComponent } from './navigation/navigation-dock/navigation-dock.component';
-import { NotFoundComponent } from './navigation/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
-import { DocumentationComponent } from './hyrax/documentation/documentation.component';
-import { AdocComponent } from './shared/components/adoc/adoc.component';
-import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-template.component';
-import { TocLevelComponent } from './hyrax/documentation/toc-level/toc-level.component';
 import { RouterModule } from '@angular/router';
+
+import { DocsModule } from './docs/docs.module';
+import { FaqModule } from './faq/faq.module';
+import { HyraxModule } from './hyrax/hyrax.module';
+import { NavModule } from './nav/nav.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
-    HyraxComponent,
-    ReleasesComponent,
-    DownloadWidgetComponent,
     AboutUsComponent,
     SoftwareComponent,
     SupportComponent,
-    FaqComponent,
-    FaqSearchComponent,
-    FaqSectionComponent,
-    FooterComponent,
-    NavComponent,
-    NavigationDockComponent,
-    NotFoundComponent,
-    MarkdownDivComponent,
-    DocumentationComponent,
-    AdocComponent,
-    AdocTemplateComponent,
-    TocLevelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DemoMaterialModule,
+    MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    DocsModule,
+    FaqModule,
+    HyraxModule,
+    NavModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

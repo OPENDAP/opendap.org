@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Versions } from 'src/app/shared/models/versions';
-import { DataReaderService } from 'src/app/shared/services/data-reader.service';
+import { Versions } from '@shared/models/versions';
+import { DataReaderService } from '@shared/services/data-reader.service';
 
 @Component({
   selector: 'app-nav',
@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
   constructor(private dataReaderService: DataReaderService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataReaderService.getReleaseData().subscribe(data => {
       this.versions = data.versions;
     });

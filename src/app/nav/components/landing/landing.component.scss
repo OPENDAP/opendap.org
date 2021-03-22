@@ -1,4 +1,4 @@
-@import '../shared/sass/variables.scss';
+@import 'variables';
 
 .home {
     display: flex;
@@ -35,7 +35,7 @@
         background: linear-gradient(180deg,
             mat-color(mat-palette($app-blue, 500)) 0%,
             mat-color(mat-palette($app-blue, 700)) 100%) !important;
-        
+
         &--image {
             width: 250px !important;
             margin: 30px auto;

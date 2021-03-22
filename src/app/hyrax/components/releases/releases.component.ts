@@ -2,14 +2,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import * as showdown from 'showdown';
-import { DataReaderService } from '../shared/services/data-reader.service';
-import { VersionData } from '../shared/models/versionData';
+import { DataReaderService } from '@shared/services/data-reader.service';
+import { VersionData } from '@shared/models/versionData';
 
 @Component({
   selector: 'app-releases',
   templateUrl: './releases.component.html',
-  styleUrls: ['./releases.component.scss'],
-  
+  styleUrls: ['./releases.component.scss']
 })
 export class ReleasesComponent implements OnInit {
   allVersionData: VersionData[] = [];
@@ -20,17 +19,17 @@ export class ReleasesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataReaderService: DataReaderService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.loadPage(params.version);
     });
   }
 
-  getLatestVersion() {
-    this.allVersionData[this.allVersionData.length - 1].fixVersion;
+  getLatestVersion(): string {
+    return this.allVersionData[this.allVersionData.length - 1].fixVersion;
   }
 
-  loadPage(version: string) {
+  loadPage(version: string): void {
     this.allVersionData.length = 0;
 
     this.dataReaderService.getVersionPageData(version).subscribe(data => {

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { DataReaderService } from 'src/app/shared/services/data-reader.service';
-import { TocNode } from './models/toc-node.model';
+
+import { TocNode } from '@docs/models/toc-node.model';
+
+import { DataReaderService } from '@shared/services/data-reader.service';
 
 @Component({
   selector: 'app-documentation',

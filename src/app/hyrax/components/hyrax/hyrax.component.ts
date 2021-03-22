@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataReaderService } from '../shared/services/data-reader.service';
+import { DataReaderService } from '@shared/services/data-reader.service';
 
 @Component({
   selector: 'app-hyrax',
   templateUrl: './hyrax.component.html',
-  styleUrls: ['./hyrax.component.scss', '../shared/sass/landing-style.scss']
+  styleUrls: ['./hyrax.component.scss']
 })
 export class HyraxComponent implements OnInit {
 

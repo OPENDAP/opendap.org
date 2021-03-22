@@ -1,4 +1,4 @@
-@import '../../sass/variables.scss';
+@import 'variables';
 
 .markdown-body {
     margin-top: 90px;
@@ -28,13 +28,13 @@
 
     pre {
         white-space: pre-wrap;
-    
+
         code {
             width: 95%;
             padding: 1em;
         }
     }
-    
+
     code {
         display: inline-block;
         background: whitesmoke;

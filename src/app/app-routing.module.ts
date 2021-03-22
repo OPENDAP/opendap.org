@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ReleasesComponent } from './releases/releases.component';
-import { HyraxComponent } from './hyrax/hyrax.component';
+import { DocumentationComponent } from '@docs/components/documentation/documentation.component';
+import { FaqSectionComponent } from '@faq/components/faq-section/faq-section.component';
+import { FaqComponent } from '@faq/components/faq/faq.component';
+import { AdocComponent } from '@shared/components/adoc/adoc.component';
 import { SoftwareComponent, SupportComponent, AboutUsComponent } from './content.components';
-import { FaqComponent } from './faq/faq.component';
-import { LandingComponent } from './landing/landing.component';
-import { NotFoundComponent } from './navigation/not-found/not-found.component';
-import { DocumentationComponent } from './hyrax/documentation/documentation.component';
-import { AdocComponent } from './shared/components/adoc/adoc.component';
-import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
+import { HyraxComponent } from './hyrax/components/hyrax/hyrax.component';
+import { ReleasesComponent } from './hyrax/components/releases/releases.component';
+import { LandingComponent } from './nav/components/landing/landing.component';
+import { NotFoundComponent } from './nav/components/not-found/not-found.component';
 
 
 const routes: Routes = [

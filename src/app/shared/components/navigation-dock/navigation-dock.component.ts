@@ -24,8 +24,8 @@ export class NavigationDockComponent implements OnInit {
             break;
           }
 
-          let a = window.scrollY + this.scrollOffset + 15 > document.getElementById(this.ids[i].id).offsetTop;
-          let b = window.scrollY + this.scrollOffset + 15 < document.getElementById(this.ids[i + 1].id).offsetTop;
+          const a = window.scrollY + this.scrollOffset + 15 > document.getElementById(this.ids[i].id).offsetTop;
+          const b = window.scrollY + this.scrollOffset + 15 < document.getElementById(this.ids[i + 1].id).offsetTop;
 
           if (a && b) {
             this.activeSection = this.ids[i];
@@ -36,12 +36,12 @@ export class NavigationDockComponent implements OnInit {
     });
   }
 
-  scrollIntoView(link: any, id: string) {
+  scrollIntoView(link: any, id: string): void {
     this.activeSection = link;
 
     window.scrollTo({
       top: document.getElementById(id).offsetTop - this.scrollOffset,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
   }
 }

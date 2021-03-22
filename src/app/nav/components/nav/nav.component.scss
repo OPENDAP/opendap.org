@@ -1,4 +1,4 @@
-@import '../../shared/sass/variables.scss';
+@import 'variables';
 
 nav {
     display: flex;
@@ -17,7 +17,7 @@ nav {
         width: 35px;
         margin-right: 5px;
     }
-    
+
     a {
         color: white;
         margin: auto 0;
@@ -27,7 +27,7 @@ nav {
         list-style-type: none;
         display: flex;
         margin: 0 0 0 auto;
-    
+
         li {
             margin: auto 0;
             text-decoration: none;

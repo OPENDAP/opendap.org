@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataReaderService } from 'src/app/shared/services/data-reader.service';
+import { DataReaderService } from '@shared/services/data-reader.service';
 
-import { FaqSectionModel } from 'src/app/shared/models/faqSection.model';
+import { FaqSectionModel } from '@shared/models/faqSection.model';
 
 @Component({
   selector: 'app-faq-section',
