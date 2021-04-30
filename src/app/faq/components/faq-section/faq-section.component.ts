@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataReaderService } from '@shared/services/data-reader.service';
 
-import { FaqSectionModel } from '@shared/models/faqSection.model';
+import { FaqSectionModel } from '@faq/models/faqSection.model';
 
 @Component({
   selector: 'app-faq-section',
