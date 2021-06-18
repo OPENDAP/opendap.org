@@ -18,5 +18,13 @@
                 </mat-card>
             </mat-tab>
         </mat-tab-group>
+
+        <div class="gallery" *ngIf="this.thisSection.sectionType == 'gallery'">
+            <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
+                <img [src]="galleryItem.imageURL" />
+                <h2>{{galleryItem.title}}</h2>
+                <p [innerHTML]="galleryItem.subTitle"></p>
+            </div>
+        </div>
     </div>
 </div>

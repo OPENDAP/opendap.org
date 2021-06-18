@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-us',
-  template: `<app-adoc pageName="about-us"></app-adoc>`,
+  template: `<app-adoc-template pageID="about-us"></app-adoc-template>`,
 })
 export class AboutUsComponent { }
 

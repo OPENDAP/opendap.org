@@ -2,6 +2,7 @@
 
 .markdown-body {
     margin-top: 90px;
+    // font-family: 'Martel', serif;
 }
 
 .tab-content {
@@ -11,6 +12,47 @@
     margin-bottom: 24px;
 }
 
+.gallery {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .gallery-item {
+        width: 170px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    
+        h2 {
+            text-align: center;
+            line-height: 1.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            word-spacing: 100vw;
+            margin-bottom: .25rem;
+        }
+    
+        img {
+            border-radius: 100%;
+            width: 125px;
+            height: auto;
+            margin: 0 auto 1.25rem auto;
+        }
+
+        p {
+            text-align: center;
+            font-size: 0.65rem;
+            line-height: .85rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: $primary;
+        }
+    }
+}
+
 .markdown {
     max-width: 750px;
     margin-left: auto;
@@ -18,12 +60,14 @@
     margin-bottom: 25px;
 
     h1 {
+        // font-family: 'Martel', serif;
         margin-top: 21px;
         font-weight: 300;
         font-size: 1.75em;
         color: $primary;
-        border-bottom: solid 1px $primary;
         padding-bottom: 7px;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
     }
 
     pre {
