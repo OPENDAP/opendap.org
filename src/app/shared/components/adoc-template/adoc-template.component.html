@@ -1,10 +1,13 @@
-<app-navigation-dock *ngIf="headings" [ids]="headings" [scrollOffset]=170></app-navigation-dock>
+<!-- <app-navigation-dock *ngIf="headings" [ids]="headings" [scrollOffset]=170></app-navigation-dock> -->
 
-<div *ngIf="data" class="markdown-body markdown">
-    <div *ngFor="let thisSection of data.sections">
-        <h1 id="{{thisSection.id}}">
+<app-sub-nav *ngIf="pageData" [pageTitle]="pageData.pageTitle" [headings]="headings"></app-sub-nav>
+<div *ngIf="pageData" class="markdown-body body">
+    <h1>{{pageData.pageTitle}}</h1>
+
+    <div *ngFor="let thisSection of pageData.sections">
+        <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" id="{{thisSection.id}}">
             {{thisSection.title}}
-        </h1>
+        </h2>
 
         <app-adoc
             *ngIf="thisSection.sectionType == 'standard'"
@@ -22,7 +25,7 @@
         <div class="gallery" *ngIf="this.thisSection.sectionType == 'gallery'">
             <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
                 <img [src]="galleryItem.imageURL" />
-                <h2>{{galleryItem.title}}</h2>
+                <strong>{{galleryItem.title}}</strong>
                 <p [innerHTML]="galleryItem.subTitle"></p>
             </div>
         </div>

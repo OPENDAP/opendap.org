@@ -1,20 +1,25 @@
 @import '../../shared/sass/variables.scss';
 
-nav {
+.sub-nav {
     display: flex;
     z-index: 5;
+    position: sticky;
 
     height: 50px;
     top: 0;
     left: 0;
     right: 0;
 
-    background: $primary;
-    color: white;
+    color: $text-colorA;
+    background: white;
+    border-bottom: solid 1px lightgray;
 
-    .nav-image {
-        width: 35px;
-        margin-right: 5px;
+    .nav-title {
+        font-size: 1.1rem;
+    }
+
+    .nav-child {
+        font-weight: 400;
     }
     
     a {

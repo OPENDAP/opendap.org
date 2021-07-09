@@ -26,6 +26,8 @@ import { AdocComponent } from './shared/components/adoc/adoc.component';
 import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-template.component';
 import { TocLevelComponent } from './hyrax/documentation/toc-level/toc-level.component';
 import { RouterModule } from '@angular/router';
+import { SubNavComponent } from './navigation/sub-nav/sub-nav.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { RouterModule } from '@angular/router';
     DocumentationComponent,
     AdocComponent,
     AdocTemplateComponent,
-    TocLevelComponent
+    TocLevelComponent,
+    SubNavComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

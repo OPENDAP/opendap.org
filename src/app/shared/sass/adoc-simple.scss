@@ -1,4 +1,4 @@
-@import "../../sass/variables.scss";
+@import "./variables.scss";
 
 :host ::ng-deep .body {
   // margin-top: $height-toolbar;
@@ -10,6 +10,11 @@
 
   .content {
     margin: 0;
+  }
+
+  h1:nth-child(1) {
+    text-align: center;
+    margin-bottom: 5rem;
   }
 
   h1 {

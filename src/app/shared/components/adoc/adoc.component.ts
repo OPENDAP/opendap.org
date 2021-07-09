@@ -5,7 +5,10 @@ import { DataReaderService } from '../../services/data-reader.service';
 @Component({
   selector: 'app-adoc',
   templateUrl: './adoc.component.html',
-  styleUrls: ['./adoc.component.scss']
+  styleUrls: [
+    './adoc.component.scss',
+    '../../sass/adoc-simple.scss'
+  ]
 })
 export class AdocComponent implements OnInit {
   @Input() pageName: string;
