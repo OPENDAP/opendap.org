@@ -1,11 +1,11 @@
 <div class="sub-nav">
-    <button mat-button>
+    <button mat-button (click)="scrollToTop()">
         <span class="nav-title">{{ pageTitle }}</span>
     </button>
 
     <ul>
         <li *ngFor="let heading of headings">
-            <button mat-button>
+            <button (click)="scrollIntoView(heading)" mat-button>
                 <span class="nav-child">{{heading.title}}</span>
             </button>
         </li>

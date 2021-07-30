@@ -5,7 +5,7 @@
     <h1>{{pageData.pageTitle}}</h1>
 
     <div *ngFor="let thisSection of pageData.sections">
-        <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" id="{{thisSection.id}}">
+        <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" [id]="thisSection.id">
             {{thisSection.title}}
         </h2>
 
