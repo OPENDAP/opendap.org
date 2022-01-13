@@ -2,10 +2,10 @@
   [class.menu]="!subMenu"
   [class.sub-menu]="subMenu">
   <div *ngFor="let menuItem of menu">
-    <a *ngIf="menuItem.type === 'link'" [routerLink]="'/' + menuItem.link">
+    <a *ngIf="menuItem.link" [routerLink]="'/' + menuItem.link">
       <button mat-button>{{ menuItem.name }}</button>
     </a>
-    <ng-container *ngIf="menuItem.type === 'menu'">
+    <ng-container *ngIf="menuItem.menuItems">
       <button *ngIf="subMenu" mat-menu-item [matMenuTriggerFor]="menu">
         {{ menuItem.name }}
       </button>
