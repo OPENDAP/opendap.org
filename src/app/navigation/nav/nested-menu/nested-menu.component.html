@@ -1,0 +1,20 @@
+<div
+  [class.menu]="!subMenu"
+  [class.sub-menu]="subMenu">
+  <div *ngFor="let menuItem of menu">
+    <a *ngIf="menuItem.type === 'link'" [routerLink]="'/' + menuItem.link">
+      <button mat-button>{{ menuItem.name }}</button>
+    </a>
+    <ng-container *ngIf="menuItem.type === 'menu'">
+      <button *ngIf="subMenu" mat-menu-item [matMenuTriggerFor]="menu">
+        {{ menuItem.name }}
+      </button>
+      <button *ngIf="!subMenu" mat-button [matMenuTriggerFor]="menu">
+        {{ menuItem.name }}
+      </button>
+      <mat-menu #menu="matMenu">
+        <app-nested-menu [menu]="menuItem.menuItems" [subMenu]="true"></app-nested-menu>
+      </mat-menu>
+    </ng-container>
+  </div>
+</div>

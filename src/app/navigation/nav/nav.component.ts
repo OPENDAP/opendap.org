@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DynamicRoutesService } from 'src/app/services/dynamic-routes.service';
 import { Versions } from 'src/app/shared/models/versions';
 import { DataReaderService } from 'src/app/shared/services/data-reader.service';
 
@@ -12,7 +13,10 @@ export class NavComponent implements OnInit {
 
   versions: Versions[];
 
-  constructor(private dataReaderService: DataReaderService) { }
+  constructor(
+    private dataReaderService: DataReaderService,
+    public routes: DynamicRoutesService
+  ) { }
 
   ngOnInit() {
     this.dataReaderService.getReleaseData().subscribe(data => {

@@ -12,24 +12,22 @@ nav {
     background: $primary;
     color: white;
 
-    .nav-image {
+    #logo {
+      flex-grow: 1;
+    }
+
+    #nav-image {
         width: 35px;
         margin-right: 5px;
     }
-    
+
     a {
         color: white;
         margin: auto 0;
     }
 
-    ul {
-        list-style-type: none;
-        display: flex;
-        margin: 0 0 0 auto;
-    
-        li {
-            margin: auto 0;
-            text-decoration: none;
-        }
+    #nav-items {
+      display: flex;
+      margin: auto 1rem;
     }
 }

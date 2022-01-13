@@ -7,7 +7,6 @@ import { LandingComponent } from './landing/landing.component';
 import { HyraxComponent } from './hyrax/hyrax.component';
 import { ReleasesComponent } from './releases/releases.component';
 import { DownloadWidgetComponent } from './hyrax/download-widget/download-widget.component';
-import { AboutUsComponent, SoftwareComponent, SupportComponent } from './content.components';
 import { FaqComponent } from './faq/faq.component';
 import { FaqSearchComponent } from './faq/faq-search/faq-search.component';
 import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
@@ -28,6 +27,9 @@ import { TocLevelComponent } from './hyrax/documentation/toc-level/toc-level.com
 import { RouterModule } from '@angular/router';
 import { SubNavComponent } from './navigation/sub-nav/sub-nav.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { DynamicContentComponent } from './dynamic-content/dynamic-content.component';
+import { DynamicRoutesService } from './services/dynamic-routes.service';
+import { NestedMenuComponent } from './navigation/nav/nested-menu/nested-menu.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,6 @@ import { MatMenuModule } from '@angular/material/menu';
     HyraxComponent,
     ReleasesComponent,
     DownloadWidgetComponent,
-    AboutUsComponent,
-    SoftwareComponent,
-    SupportComponent,
     FaqComponent,
     FaqSearchComponent,
     FaqSectionComponent,
@@ -51,7 +50,9 @@ import { MatMenuModule } from '@angular/material/menu';
     AdocComponent,
     AdocTemplateComponent,
     TocLevelComponent,
-    SubNavComponent
+    SubNavComponent,
+    DynamicContentComponent,
+    NestedMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +64,7 @@ import { MatMenuModule } from '@angular/material/menu';
     RouterModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [ DynamicRoutesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

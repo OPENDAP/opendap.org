@@ -1,0 +1,26 @@
+a {
+  color: inherit;
+  margin: auto 0;
+}
+
+.menu {
+  display: flex;
+  color: white;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0 0 0 auto;
+
+  li {
+      margin: auto 0;
+      text-decoration: none;
+  }
+}

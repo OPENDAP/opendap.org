@@ -16,30 +16,31 @@ export class Heading {
 })
 export class AdocTemplateComponent implements OnInit {
   @Input() pageID: string;
-
-  pageData: any;
-  headings: Heading[];
+  @Input() pageData: any;
+  @Input() headings: Heading[];
 
   constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit(): void {
-    this.dataReaderService.getPage(this.pageID).subscribe(data => {
-      this.pageData = data;
+    if (this.pageID) {
+      this.dataReaderService.getPage(this.pageID).subscribe(data => {
+        this.pageData = data;
 
-      this.headings = [];
+        this.headings = [];
 
-      for (const section of this.pageData.sections) {
-        if (this.pageData.pageTitle !== section.title && !section.hideTitle) {
-          this.headings.push({
-            title: section.title,
-            id: section.id
-          });
+        for (const section of this.pageData.sections) {
+          if (this.pageData.pageTitle !== section.title && !section.hideTitle) {
+            this.headings.push({
+              title: section.title,
+              id: section.id
+            });
+          }
         }
-      }
-    }, error => {
+      }, error => {
 
-    }, () => {
+      }, () => {
 
-    });
+      });
+    }
   }
 }
