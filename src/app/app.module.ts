@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownDivComponent } from './shared/components/markdown-div/markdown-div.component';
 import { DocumentationComponent } from './hyrax/documentation/documentation.component';
 import { AdocComponent } from './shared/components/adoc/adoc.component';
-import { AdocTemplateComponent } from './shared/components/adoc-template/adoc-template.component';
+import { AdocTemplateComponent, SafeHtml } from './shared/components/adoc-template/adoc-template.component';
 import { TocLevelComponent } from './hyrax/documentation/toc-level/toc-level.component';
 import { RouterModule } from '@angular/router';
 import { SubNavComponent } from './navigation/sub-nav/sub-nav.component';
@@ -52,7 +52,8 @@ import { NestedMenuComponent } from './navigation/nav/nested-menu/nested-menu.co
     TocLevelComponent,
     SubNavComponent,
     DynamicContentComponent,
-    NestedMenuComponent
+    NestedMenuComponent,
+    SafeHtml
   ],
   imports: [
     BrowserModule,

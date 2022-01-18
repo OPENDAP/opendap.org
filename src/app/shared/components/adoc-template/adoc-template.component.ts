@@ -1,9 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Pipe } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DataReaderService } from '../../services/data-reader.service';
 
 export class Heading {
   title!: string;
   id!: string;
+}
+
+@Pipe({name: 'safe'})
+export class SafeHtml {
+  constructor(private sanitizer:DomSanitizer){}
+
+  transform(html: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
 }
 
 @Component({

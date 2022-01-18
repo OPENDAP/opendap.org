@@ -2,32 +2,37 @@
 
 <app-sub-nav *ngIf="pageData" [pageTitle]="pageData.pageTitle" [headings]="headings"></app-sub-nav>
 <div *ngIf="pageData" class="markdown-body body">
-    <h1>{{pageData.pageTitle}}</h1>
+  <h1>{{pageData.pageTitle}}</h1>
 
-    <div *ngFor="let thisSection of pageData.sections">
-        <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" [id]="thisSection.id">
-            {{thisSection.title}}
-        </h2>
+  <div *ngFor="let thisSection of pageData.sections">
+    <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" [id]="thisSection.id">
+      {{thisSection.title}}
+    </h2>
 
-        <app-adoc
-            *ngIf="thisSection.sectionType == 'standard'"
-            [content]="thisSection.parsedFile">
-        </app-adoc>
+    <app-adoc
+      *ngIf="thisSection.sectionType == 'standard'"
+      [content]="thisSection.parsedFile">
+    </app-adoc>
 
-        <mat-tab-group *ngIf="thisSection.sectionType == 'tabbed'" dynamicHeight>
-            <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.title}}">
-                <mat-card class="tab-content">
-                    <app-adoc [content]="thisTab.parsedFile"></app-adoc>
-                </mat-card>
-            </mat-tab>
-        </mat-tab-group>
-
-        <div class="gallery" *ngIf="this.thisSection.sectionType == 'gallery'">
-            <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
-                <img [src]="galleryItem.imageURL" />
-                <strong>{{galleryItem.title}}</strong>
-                <p [innerHTML]="galleryItem.subTitle"></p>
-            </div>
-        </div>
+    <div
+      *ngIf="thisSection.sectionType == 'html'"
+      [innerHTML]="thisSection.parsedFile | safe">
     </div>
+
+    <mat-tab-group *ngIf="thisSection.sectionType == 'tabbed'" dynamicHeight>
+      <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.title}}">
+        <mat-card class="tab-content">
+          <app-adoc [content]="thisTab.parsedFile"></app-adoc>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div class="gallery" *ngIf="this.thisSection.sectionType == 'gallery'">
+      <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
+        <img [src]="galleryItem.imageURL" />
+        <strong>{{galleryItem.title}}</strong>
+        <p [innerHTML]="galleryItem.subTitle"></p>
+      </div>
+    </div>
+  </div>
 </div>
