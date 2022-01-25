@@ -1,0 +1,12 @@
+@import '../../../sass/variables.scss';
+
+footer {
+  display: flex;
+  text-align: center;
+  line-height: 150%;
+  height: $height-footer;
+
+  p {
+    margin: auto;
+  }
+}

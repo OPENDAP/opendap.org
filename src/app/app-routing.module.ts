@@ -1,15 +1,16 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DocumentationComponent } from './hyrax/documentation/documentation.component';
-import { DynamicContentComponent } from './dynamic-content/dynamic-content.component';
-import { FaqComponent } from './faq/faq.component';
-import { FaqSectionComponent } from './faq/faq-section/faq-section.component';
-import { HyraxComponent } from './hyrax/hyrax.component';
-import { LandingComponent } from './landing/landing.component';
-import { NotFoundComponent } from './navigation/not-found/not-found.component';
-import { ReleasesComponent } from './releases/releases.component';
 import { DynamicRoutesService } from './services/dynamic-routes.service';
+
+import { DocumentationComponent } from './hyrax/components/documentation/documentation.component';
+import { DynamicContentComponent } from './dynamic-content/components/dynamic-content/dynamic-content.component';
+import { FaqComponent } from './faq/components/faq/faq.component';
+import { FaqSectionComponent } from './faq/components/faq-section/faq-section.component';
+import { HyraxComponent } from './hyrax/components/hyrax/hyrax.component';
+import { LandingComponent } from './nav/components/landing/landing.component';
+import { NotFoundComponent } from './nav/components/not-found/not-found.component';
+import { ReleasesComponent } from './hyrax/components/releases/releases.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },

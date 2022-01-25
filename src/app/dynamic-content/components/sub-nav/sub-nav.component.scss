@@ -1,0 +1,40 @@
+@import '../../../sass/variables.scss';
+
+.sub-nav {
+    display: flex;
+    z-index: 5;
+    position: sticky;
+
+    height: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    color: $text-colorA;
+    background: white;
+    border-bottom: solid 1px lightgray;
+
+    .nav-title {
+        font-size: 1.1rem;
+    }
+
+    .nav-child {
+        font-weight: 400;
+    }
+
+    a {
+        color: white;
+        margin: auto 0;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0 0 0 auto;
+
+        li {
+            margin: auto 0;
+            text-decoration: none;
+        }
+    }
+}

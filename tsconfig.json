@@ -5,6 +5,12 @@
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
 {
+  "baseUrl": "src",
+  "paths": {
+    "@dynamic-content/*": ["app/dynamic-content/*"],
+    "@faq/*": ["app/faq/*"],
+    "@services/*": ["app/services/*"]
+  },
   "files": [],
   "references": [
     {
@@ -16,5 +22,5 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-]
+  ]
 }
