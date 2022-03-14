@@ -33,6 +33,15 @@
           <p [innerHTML]="galleryItem.subTitle"></p>
         </div>
       </div>
+
+      <div class="cards" *ngSwitchCase="'cards'">
+        <div class="card" *ngFor="let galleryItem of thisSection.parsedFile.cards">
+          <mat-card>
+            <mat-card-title>{{galleryItem.title}}</mat-card-title>
+            <mat-card-content [innerHTML]="galleryItem.body"></mat-card-content>
+          </mat-card>
+        </div>
+      </div>
     </ng-container>
   </div>
 </div>

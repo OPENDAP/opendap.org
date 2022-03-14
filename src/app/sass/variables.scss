@@ -96,6 +96,27 @@ $height-nav-tabs: 50px;
 $height-progress-bar: 5px;
 $height-footer: 100px;
 
+$heading-font-family: "'Open Sans', sans-serif";
+$typography: mat-typography-config(
+  $headline: mat-typography-level(
+    $font-size: 22px,
+    $font-weight: 500,
+    $font-family: $heading-font-family,
+  ),
+  $title: mat-typography-level(
+    $font-size: 22px,
+    $font-weight: 500,
+    $font-family: $heading-font-family),
+  $display-4: mat-typography-level(
+    $font-size: 22px,
+    $font-family: $heading-font-family,
+  ),
+  $display-3: mat-typography-level(56px, $font-family: $heading-font-family),
+  $display-2: mat-typography-level(45px, $font-family: $heading-font-family),
+  $display-1: mat-typography-level(34px, $font-family: $heading-font-family),
+);
+@include angular-material-typography($typography);
+
 :link {
     color: $primary;
     text-decoration: none;

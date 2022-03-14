@@ -10,7 +10,7 @@ export class DynamicRoutesService {
 
   constructor(private _http: HttpClient) { }
 
-  public initRoutes() {
+  public initRoutes(): any {
     return this._http.get<any>('/api/menu');
   }
 }

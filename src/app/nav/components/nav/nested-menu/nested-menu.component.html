@@ -3,13 +3,13 @@
   [class.sub-menu]="subMenu">
   <div *ngFor="let menuItem of menu">
     <a *ngIf="menuItem.link" [routerLink]="'/' + menuItem.link">
-      <button mat-button>{{ menuItem.name }}</button>
+      <button mat-menu-item>{{ menuItem.name }}</button>
     </a>
     <ng-container *ngIf="menuItem.menuItems">
       <button *ngIf="subMenu" mat-menu-item [matMenuTriggerFor]="menu">
         {{ menuItem.name }}
       </button>
-      <button *ngIf="!subMenu" mat-button [matMenuTriggerFor]="menu">
+      <button *ngIf="!subMenu" mat-menu-item [matMenuTriggerFor]="menu">
         {{ menuItem.name }}
       </button>
       <mat-menu #menu="matMenu">

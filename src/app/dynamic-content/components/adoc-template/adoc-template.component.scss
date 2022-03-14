@@ -12,6 +12,14 @@
     margin-bottom: 24px;
 }
 
+.cards {
+  display: flex;
+
+  .card {
+    flex-basis: 50%;
+  }
+}
+
 .gallery {
     display: flex;
     width: 100%;
