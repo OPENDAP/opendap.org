@@ -16,14 +16,13 @@ export class NavComponent implements OnInit {
   versions: Versions[];
 
   constructor(
-    private dataReaderService: DataReaderService,
+    private _dataReaderService: DataReaderService,
     public routes: DynamicRoutesService
   ) { }
 
-  ngOnInit() {
-    this.dataReaderService.getReleaseData().subscribe(data => {
+  ngOnInit(): void {
+    this._dataReaderService.getReleaseData().subscribe(data => {
       this.versions = data.versions;
     });
   }
-
 }

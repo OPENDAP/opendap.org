@@ -1,5 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { DataReaderService } from 'src/app/services/data-reader.service';
@@ -9,27 +9,26 @@ import { DataReaderService } from 'src/app/services/data-reader.service';
   templateUrl: './dynamic-content.component.html',
   styleUrls: ['./dynamic-content.component.scss']
 })
-export class DynamicContentComponent implements OnInit, OnDestroy {
+export class DynamicContentComponent implements OnDestroy {
   public query: string;
 
   public data: any;
-  public headings: {title: string, id: string}[];
+  public headings: { title: string, id: string }[];
 
   private _routeSub: Subscription;
 
   constructor(
+    private _dataReaderService: DataReaderService,
     private _route: ActivatedRoute,
-    private _dataReaderService: DataReaderService
-  ) { }
-
-  ngOnInit(): void {
+    private _router: Router,
+  ) {
     this._routeSub = this._route.params.subscribe(data => {
       this.query = data.query;
-      this.getContent(data.query);
+      this._getContent(data.query);
     });
   }
 
-  private getContent(pageId: string) {
+  private _getContent(pageId: string): void {
     this._dataReaderService.getPage(pageId).subscribe(data => {
       this.data = data;
 
@@ -44,10 +43,10 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
         }
       }
     }, error => {
-
+      console.error(error);
+      this._router.navigate(['/404']);
     });
-}
-
+  }
 
   ngOnDestroy(): void {
     this._routeSub.unsubscribe();

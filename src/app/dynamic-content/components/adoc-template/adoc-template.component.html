@@ -3,14 +3,15 @@
   <h1>{{pageData.pageTitle}}</h1>
 
   <div *ngFor="let thisSection of pageData.sections">
-    <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" [id]="thisSection.id">
+    <!-- <h2 *ngIf="!thisSection.hideTitle && thisSection.title !== pageData.pageTitle" [id]="thisSection.id">
       {{thisSection.title}}
-    </h2>
+    </h2> -->
 
     <ng-container [ngSwitch]="thisSection.sectionType">
       <app-adoc
         *ngSwitchCase="'standard'"
-        [content]="thisSection.parsedFile">
+        [content]="thisSection.parsedFile"
+        (headings)="processHeadings($event)">
       </app-adoc>
 
       <div
@@ -21,7 +22,9 @@
       <mat-tab-group *ngSwitchCase="'tabbed'" dynamicHeight>
         <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.title}}">
           <mat-card class="tab-content">
-            <app-adoc [content]="thisTab.parsedFile"></app-adoc>
+            <app-adoc
+              [content]="thisTab.parsedFile"
+              (headings)="processHeadings($event)"></app-adoc>
           </mat-card>
         </mat-tab>
       </mat-tab-group>
