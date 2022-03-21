@@ -28,13 +28,16 @@
           </mat-tab>
         </mat-tab-group>
 
-        <div class="gallery" *ngSwitchCase="'gallery'">
-          <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
-            <img [src]="galleryItem.imageURL" />
-            <strong>{{galleryItem.title}}</strong>
-            <p [innerHTML]="galleryItem.subTitle"></p>
+        <ng-container *ngSwitchCase="'gallery'">
+          <h2>{{ thisSection.title }}</h2>
+          <div class="gallery">
+            <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
+              <img [src]="galleryItem.imageURL" />
+              <strong>{{galleryItem.title}}</strong>
+              <p [innerHTML]="galleryItem.subTitle"></p>
+            </div>
           </div>
-        </div>
+        </ng-container>
 
         <div class="cards" *ngSwitchCase="'cards'">
           <div class="card" *ngFor="let galleryItem of thisSection.parsedFile.cards">
