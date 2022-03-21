@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-import { Heading } from '../adoc-template/adoc-template.component';
+import { Heading } from '../dynamic-content/dynamic-content.component';
 
 @Component({
   selector: 'app-sub-nav',
@@ -23,8 +22,8 @@ export class SubNavComponent  {
             break;
           }
 
-          let a = window.scrollY + this.scrollOffset + 15 > document.getElementById(this.headings[i].id).offsetTop;
-          let b = window.scrollY + this.scrollOffset + 15 < document.getElementById(this.headings[i + 1].id).offsetTop;
+          const a = window.scrollY + this.scrollOffset + 15 > document.getElementById(this.headings[i].id).offsetTop;
+          const b = window.scrollY + this.scrollOffset + 15 < document.getElementById(this.headings[i + 1].id).offsetTop;
 
           if (a && b) {
             this.activeSection = this.headings[i];
@@ -35,7 +34,7 @@ export class SubNavComponent  {
     });
   }
 
-  public scrollIntoView(heading: Heading) {
+  public scrollIntoView(heading: Heading): void {
     this.activeSection = heading;
 
     window.scrollTo({
@@ -44,10 +43,10 @@ export class SubNavComponent  {
     });
   }
 
-  public scrollToTop() {
+  public scrollToTop(): void {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
-    })
+    });
   }
 }

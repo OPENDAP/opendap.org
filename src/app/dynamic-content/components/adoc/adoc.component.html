@@ -1,7 +1,0 @@
-<div *ngIf="pageName" class="body">
-    <mat-spinner *ngIf="loading"></mat-spinner>
-    <div *ngIf="!loading && data" [innerHTML]="data.html | safeHtml"></div>
-</div>
-<div *ngIf="content" class="body">
-    <div [innerHTML]="content | safeHtml"></div>
-</div>

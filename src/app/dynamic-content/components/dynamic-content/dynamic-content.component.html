@@ -1,1 +1,50 @@
-<app-adoc-template [pageData]="data"></app-adoc-template>
+<app-sub-nav *ngIf="content" [pageTitle]="content.pageTitle" [headings]="headings"></app-sub-nav>
+<div id="content" class="markdown-body body">
+  <ng-container *ngIf="content">
+    <h1>{{content.pageTitle}}</h1>
+
+    <div *ngFor="let thisSection of content.sections">
+      <ng-container [ngSwitch]="thisSection.sectionType">
+        <ng-container *ngSwitchCase="'standard'">
+          <div *ngIf="thisSection.parsedFile" class="body">
+            <div [innerHTML]="thisSection.parsedFile | safeHtml" appDomChange></div>
+          </div>
+        </ng-container>
+
+        <div
+          *ngSwitchCase="'html'"
+          [innerHTML]="thisSection.parsedFile | safeHtml">
+        </div>
+
+        <mat-tab-group *ngSwitchCase="'tabbed'" dynamicHeight>
+          <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.title}}">
+            <mat-card class="tab-content">
+              <ng-container>
+                <div *ngIf="thisTab.parsedFile" class="body">
+                  <div [innerHTML]="thisTab.parsedFile | safeHtml" appDomChange></div>
+                </div>
+              </ng-container>
+            </mat-card>
+          </mat-tab>
+        </mat-tab-group>
+
+        <div class="gallery" *ngSwitchCase="'gallery'">
+          <div *ngFor="let galleryItem of thisSection.parsedFile.gallery" class="gallery-item">
+            <img [src]="galleryItem.imageURL" />
+            <strong>{{galleryItem.title}}</strong>
+            <p [innerHTML]="galleryItem.subTitle"></p>
+          </div>
+        </div>
+
+        <div class="cards" *ngSwitchCase="'cards'">
+          <div class="card" *ngFor="let galleryItem of thisSection.parsedFile.cards">
+            <mat-card>
+              <mat-card-title>{{galleryItem.title}}</mat-card-title>
+              <mat-card-content [innerHTML]="galleryItem.body" appDomChange></mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

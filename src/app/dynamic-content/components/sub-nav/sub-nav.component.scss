@@ -11,7 +11,8 @@
     right: 0;
 
     color: $text-colorA;
-    background: white;
+    backdrop-filter: saturate(180%) blur(4px);
+    background-color: rgba(255,255,255,0.72);
     border-bottom: solid 1px lightgray;
 
     .nav-title {
