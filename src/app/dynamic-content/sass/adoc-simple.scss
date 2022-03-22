@@ -100,6 +100,8 @@
   }
 
   table {
+    border-collapse: collapse;
+
     h3,
     h4 {
       margin: 0;
@@ -114,10 +116,15 @@
 
     td {
       vertical-align: top;
+      border-bottom: solid 1px lightgray;
 
       img {
         margin-top: 6px;
         margin-right: 14px;
+      }
+
+      .tableblock {
+        padding: .5rem;
       }
     }
   }
